@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  grid-template-areas:
+  "head head head"
+  "sidetop main main"
+  "sidetop main main"
+  "sidebottom main main"
+  "sidebottom main main"
+}
+
+header {
+  grid-area: head
+  border: 1px solid black
+}
+
+.top-left {
+  grid-area: sidetop;
+  border: 1px solid black
+}
+
+.bottom-left {
+  grid-area: sidebottom;
+  border: 1px solid black
+}
