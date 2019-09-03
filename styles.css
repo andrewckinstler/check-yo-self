@@ -23,6 +23,7 @@ header {
   display: flex;
   border: 1px solid black;
   align-items: center;
+  justify-content: space-between;
 }
 
 h1 {
@@ -36,13 +37,21 @@ h1 {
   color: #FFC30C;
 }
 
+.form-box {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
 .search {
-  height: 35px;
+  width: 60px;
+  padding: 10px;
+  border: none;
 }
 
 .search-form {
   width: 350px;
-  height: 75%;
+  height: 60px;
   font-size: 18px;
   padding-left: 10px;
 }
@@ -62,7 +71,7 @@ h1 {
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
-  border-top: 1px solid #C7D3D8; 
+  border-top: 1px solid #C7D3D8;
   padding: 15px;
   height: 430px;
 }
