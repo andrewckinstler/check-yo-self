@@ -8,11 +8,11 @@
 .container {
   display: grid;
   grid-template-areas:
-  "head head head"
-  "sidetop main main"
-  "sidetop main main"
-  "sidebottom main main"
-  "sidebottom main main";
+    "head head head"
+    "sidetop main main"
+    "sidetop main main"
+    "sidebottom main main"
+    "sidebottom main main";
   grid-template-columns: 500px;
   grid-template-rows: 90px;
 }
@@ -53,7 +53,6 @@ h1 {
   flex-flow: column wrap;
   justify-content: flex-end;
   grid-area: sidetop;
-  border: 1px solid black;
   padding: 30px 15px 15px 15px;
 }
 
@@ -63,7 +62,7 @@ h1 {
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
-  border: 1px solid black;
+  border-top: 1px solid #C7D3D8; 
   padding: 15px;
   height: 430px;
 }
@@ -88,5 +87,4 @@ h1 {
   margin: 10px auto;
   padding: 10px 0;
   font-size: 16px;
-
 }
