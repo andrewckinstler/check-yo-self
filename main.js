@@ -1,3 +1,4 @@
+
 var makeTaskBtn = document.querySelector('.make-task');
 var mainSection = document.querySelector('.main');
 var taskTitle = document.querySelector('.title');
@@ -6,7 +7,9 @@ var taskItem = document.querySelector('.item');
 
 
 makeTaskBtn.addEventListener('click', createTaskList);
-
+document.querySelectorAll('.form').forEach(function(form) {
+  form.addEventListener('keyup', disableClear);
+});
 
 // input: click
 // output: create new task list card
@@ -42,3 +45,12 @@ function createTaskList() {
 //   makeTaskBtn.classList.add('disabled-button');
 //   makeTaskBtn.disabled = true;
 //   }
+
+
+
+function disableClear() {
+  if (document.querySelector('.title') === '' || document.querySelector('.item') === '') {
+    document.querySelector('.clear').disabled = true;
+  };
+};
+

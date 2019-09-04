@@ -98,6 +98,10 @@ h1 {
   font-size: 16px;
 }
 
+.clear:disabled {
+  background-color: grey;
+
+
 .task-card {
   grid-area: main;
   flex-direction: column;
