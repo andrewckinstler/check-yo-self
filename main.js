@@ -2,21 +2,11 @@
 var taskList = document.querySelector('.task-list');
 var addTasks = document.querySelector('.add-task');
 var taskInput = document.querySelector('.form-item');
-
-addTasks.addEventListener('click', appendTask);
-
-function appendTask() {
-  taskList.innerHTML += `<li><button class="delete-button">X</button>${taskInput.value}</li>`
-};
-
-
 var makeTaskBtn = document.querySelector('.make-task');
 var mainSection = document.querySelector('.main');
 var taskTitle = document.querySelector('.title');
-var taskItem = document.querySelector('.item');
 
-
-
+addTasks.addEventListener('click', appendTask);
 makeTaskBtn.addEventListener('click', createTaskList);
 document.querySelectorAll('.form').forEach(function(form) {
   form.addEventListener('keyup', disableClear);
@@ -36,9 +26,9 @@ function createTaskList() {
     <h4>${taskTitle.value}</h4>
     </div>
     <ul>
-      <li>${taskItem.value}</li>
-      <li>${taskItem.value}</li>
-      <li>${taskItem.value}</li>
+      <li>${taskInput.value}</li>
+      <li>${taskInput.value}</li>
+      <li>${taskInput.value}</li>
     </ul>
     <div class="divider">
     <input type="image" class="urgent-button" src="check-yo-self-icons/urgent.svg"/>
@@ -57,12 +47,12 @@ function createTaskList() {
 //   makeTaskBtn.disabled = true;
 //   }
 
-
+function appendTask() {
+  taskList.innerHTML += `<li><button class="delete-button">X</button>${taskInput.value}</li>`
+};
 
 function disableClear() {
-  if (document.querySelector('.title') === '' || document.querySelector('.item') === '') {
+  if (document.querySelector('.title') === '' || document.querySelector('.form-item') === '') {
     document.querySelector('.clear').disabled = true;
   };
 };
-
-
