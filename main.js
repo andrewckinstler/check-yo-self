@@ -23,6 +23,7 @@ document.querySelectorAll('.form').forEach(function(form) {
 
 function taskListButtonHandler() {
   createTaskList();
+  clearFields();
 }
 
 function createTaskList() {
@@ -42,6 +43,10 @@ function createTaskList() {
     </div>`
 };
 
+function clearFields() {
+  taskTitle.value = '';
+  taskInput.value = '';
+}
 // Ertmer's pseudo code for click on make task list button
 // input: click,
 // output: several funcs, wrapped up in button handler function
