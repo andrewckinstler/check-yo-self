@@ -161,14 +161,17 @@ h1 {
   border-left: 2px solid lightgrey;
   border-right: 2px solid lightgrey;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   margin: 5%;
   background-color: #FAFDFF;
+  width: 90%;
 
 }
 
 .task-card .appended {
   color: #1f1f3D;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .divider {
@@ -177,6 +180,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  flex-direction: row;
 }
 
 .divider-top {
@@ -187,6 +191,7 @@ h1 {
 .urgent-button {
   height: 20px;
   margin: 5px;
+  display: block;
 }
 
 .delete-button {

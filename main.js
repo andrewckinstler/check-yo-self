@@ -46,11 +46,16 @@ function createTaskList() {
       ${taskList.innerHTML}
     </ul>
     <div class="divider">
-    <input type="image" class="urgent-button" src="check-yo-self-icons/urgent.svg"/>
-    <p>URGENT</p>
-    <input type="image" class="delete-button" src="check-yo-self-icons/delete.svg"/>
-    <p>DELETE</p>
-    </div>`
+      <div class="task-card-bundle-button">
+        <input type="image" class="urgent-button" src="check-yo-self-icons/urgent.svg"/>
+        <p>URGENT</p>
+      </div>
+      <div class="task-card-bundle-button">
+        <input type="image" class="delete-button" src="check-yo-self-icons/delete.svg"/>
+        <p>DELETE</p>
+      </div>
+    </div>
+  </article>`
 };
 
 function clearSidebar() {
