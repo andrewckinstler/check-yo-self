@@ -30,3 +30,8 @@ function createTaskList() {
     <input type="image" class="urgent-button" src="check-yo-self-icons/urgent.svg"/>
     <input type="image" class="delete-button" src="check-yo-self-icons/delete.svg"/>`
 };
+
+function disableButton() {
+  makeTaskBtn.classList.add('disabled-button');
+  makeTaskBtn.disabled = true;
+  }

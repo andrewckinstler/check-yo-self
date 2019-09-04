@@ -133,3 +133,7 @@ h1 {
 ul {
   list-style-image: url(check-yo-self-icons/checkbox.svg);
 }
+
+.disabled-button {
+  background-color: lightgrey;
+}
