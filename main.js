@@ -2,7 +2,7 @@
 var taskList = document.querySelector('.task-list');
 var addTasks = document.querySelector('.add-task');
 var taskInput = document.querySelector('.form-item');
-var makeTaskBtn = document.querySelector('.make-task');
+var makeTaskBtn = document.querySelector('.make-list');
 var mainSection = document.querySelector('.main');
 var taskTitle = document.querySelector('.title');
 
