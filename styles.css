@@ -102,9 +102,30 @@ h1 {
   grid-area: main;
   flex-direction: column;
   text-align: center;
-  border: 2px solid lightgrey;
+  border-left: 2px solid lightgrey;
+  border-right: 2px solid lightgrey;
+  display: flex;
+  align-items: center;
 }
 
 .divider {
   border-top: 2px solid lightgrey;
+  border-bottom: 2px solid lightgrey;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.divider-top {
+  justify-content: center;
+}
+
+.urgent-button {
+  height: 20px;
+  margin: 5px;
+}
+
+.delete-button {
+  height: 20px;
+  margin: 5px;
 }

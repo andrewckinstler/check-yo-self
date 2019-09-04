@@ -17,14 +17,5 @@ makeTaskBtn.addEventListener('click', createTaskList);
 function createTaskList() {
   console.log('does it work?');
   mainSection.innerHTML +=
-  `<article class="task-card">
-    <h4>${taskTitle.value}</h4>
-    <div class="divider"></div>
-    <ul>
-      <li>stuff 1</li>
-      <li>stuff 2</li>
-      <li>stuff 3</li>
-    </ul>
-    <div class="divider"></div>
-  </article>`
+  `html goes here`
 };
