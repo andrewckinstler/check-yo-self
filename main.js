@@ -18,6 +18,8 @@ clearButton.addEventListener('click', clearSidebar);
 taskTitle.addEventListener('keyup', disableClear);
 taskInput.addEventListener('keyup', disableClear);
 
+// hope this works
+
 // input: click
 // output: create new task list card
 // user will add task title to input, and task items to input
