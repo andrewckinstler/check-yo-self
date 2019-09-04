@@ -23,7 +23,7 @@ document.querySelectorAll('.form').forEach(function(form) {
 
 function taskListButtonHandler() {
   createTaskList();
-  clearFields();
+  clearSidebar();
 }
 
 function createTaskList() {
@@ -43,7 +43,7 @@ function createTaskList() {
     </div>`
 };
 
-function clearFields() {
+function clearSidebar() {
   taskTitle.value = '';
   taskInput.value = '';
   taskList.innerHTML = '';
