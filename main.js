@@ -31,7 +31,14 @@ function createTaskList() {
     <input type="image" class="delete-button" src="check-yo-self-icons/delete.svg"/>`
 };
 
-function disableButton() {
-  makeTaskBtn.classList.add('disabled-button');
-  makeTaskBtn.disabled = true;
-  }
+// Ertmer's pseudo code for click on make task list button
+// input: click,
+// output: several funcs, wrapped up in button handler function
+// 1 create new card (create task list func)
+// 2 clear fields
+// 3 disable button until keydown
+
+// function disableButton() {
+//   makeTaskBtn.classList.add('disabled-button');
+//   makeTaskBtn.disabled = true;
+//   }
