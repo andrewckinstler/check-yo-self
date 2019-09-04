@@ -13,24 +13,20 @@
     "sidetop main main"
     "sidebottom main main"
     "sidebottom main main";
-  grid-template-columns: 500px;
-  grid-template-rows: 90px;
+  grid-template-columns: 33%;
 }
 
 header {
   background-color: #1F1F3D;
   grid-area: head;
-  display: flex;
-  border: 1px solid black;
-  align-items: center;
-  justify-content: space-between;
+  padding: 15px;
 }
 
 h1 {
-  margin: auto 15px;
   padding: 5px 0;
   color: #FFF;
   font-size: 45px;
+  text-align: center;
 }
 
 .yo {
@@ -40,20 +36,47 @@ h1 {
 .form-box {
   display: flex;
   align-items: center;
-  margin-right: 15px;
+  width: 100%;
 }
 
 .search {
-  width: 60px;
+  width: 57px;
   padding: 10px;
-  border: none;
+  border: 1px solid #FFF;
 }
 
 .search-form {
-  width: 350px;
+  flex: 1 0 auto;
   height: 60px;
   font-size: 18px;
   padding-left: 10px;
+}
+
+.form-text {
+  display: block;
+}
+
+.task-form {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  padding-left: 18px;
+}
+
+.form-item {
+  height: 50px;
+  width: 80%;
+}
+
+.add-task {
+  border: 1px solid #1F1F3D;
+  background-color: #1F1F3D;
+  color: #FFF;
+  font-size: 50px;
+  font-weight: 300;
+  width: 15%;
+  height: 50px;
+  padding-bottom: 5px;
 }
 
 .top-left {
@@ -96,4 +119,20 @@ h1 {
   margin: 10px auto;
   padding: 10px 0;
   font-size: 16px;
+}
+
+@media (min-width: 850px) {
+  header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .form-box {
+    width: auto;
+  }
+  .search-form {
+    flex: 1 0 auto;
+    width: 350px;
+  }
 }
