@@ -17,5 +17,16 @@ makeTaskBtn.addEventListener('click', createTaskList);
 function createTaskList() {
   console.log('does it work?');
   mainSection.innerHTML +=
-  `html goes here`
+  `<article class="task-card">
+    <div class="divider divider-top">
+    <h4>${taskTitle.value}</h4>
+    </div>
+    <ul>
+      <li>${taskItem.value}</li>
+      <li>${taskItem.value}</li>
+      <li>${taskItem.value}</li>
+    </ul>
+    <div class="divider">
+    <input type="image" class="urgent-button" src="check-yo-self-icons/urgent.svg"/>
+    <input type="image" class="delete-button" src="check-yo-self-icons/delete.svg"/>`
 };
