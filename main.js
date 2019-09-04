@@ -9,6 +9,10 @@ var taskList = document.querySelector('.task-list');
 var clearButton = document.querySelector('.clear');
 
 addTasks.addEventListener('click', appendTask);
+
+document.querySelectorAll('.form-title').forEach(function(form) {
+  form.addEventListener('keyup', disableClear);
+});
 makeTaskBtn.addEventListener('click', taskListButtonHandler);
 clearButton.addEventListener('click', clearSidebar);
 taskTitle.addEventListener('keyup', disableClear);
@@ -60,7 +64,7 @@ function clearSidebar() {
 
 
 function appendTask() {
-  taskList.innerHTML += `<li><button class="delete-button">X</button>${taskInput.value}</li>`
+  taskList.innerHTML += `<li class="appended"><button class="delete-button">X</button>${taskInput.value}</li>`
 };
 
 function disableClear() {
