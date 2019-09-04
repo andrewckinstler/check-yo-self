@@ -53,12 +53,18 @@ function createTaskList() {
     </div>`
 };
 
+function disableAll() {
+  clearButton.disabled = true;
+  addTasks.disabled = true;
+  makeTaskBtn.disabled = true;
+};
+
 function clearSidebar() {
   taskTitle.value = '';
   taskInput.value = '';
   taskList.innerHTML = '';
-  clearButton.disabled = true;
-}
+  disableAll();
+};
 // Ertmer's pseudo code for click on make task list button
 // input: click,
 // output: several funcs, wrapped up in button handler function
@@ -74,9 +80,7 @@ function appendTask() {
 
 function disableClear() {
   if (taskTitle.value === '' || taskInput.value === '') {
-    clearButton.disabled = true;
-    addTasks.disabled = true;
-    makeTaskBtn.disabled = true;
+    disableAll();
   } else {
     clearButton.disabled = false;
     addTasks.disabled = false;
