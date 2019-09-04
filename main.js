@@ -81,7 +81,7 @@ function clearSidebar() {
 
 
 function appendTask() {
-  taskList.innerHTML += `<div class="appended"><button class="task-delete"><img src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`
+  taskList.innerHTML += `<div class="appended"><button class="task-delete"><img  class="delete-img" src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`
 };
 
 function disableClear() {
@@ -91,5 +91,12 @@ function disableClear() {
     clearButton.disabled = false;
     addTasks.disabled = false;
     makeTaskBtn.disabled = false;
+  }
+};
+
+function deleteTaskItem(event) {
+  console.log(event)
+  if (event.target.className === 'delete-img') {
+    event.target.closest('div').remove();
   }
 };
