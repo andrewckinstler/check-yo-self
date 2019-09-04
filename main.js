@@ -66,7 +66,9 @@ function appendTask() {
 function disableClear() {
   if (taskTitle.value === '' || taskInput.value === '') {
     clearButton.disabled = true;
+    addTasks.disabled = true;
   } else {
     clearButton.disabled = false;
+    addTasks.disabled = false;
   }
 };
