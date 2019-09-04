@@ -162,6 +162,7 @@ h1 {
   border-right: 2px solid lightgrey;
   display: flex;
   align-items: center;
+  margin: 5%;
 }
 
 .divider {

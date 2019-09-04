@@ -26,9 +26,10 @@ taskInput.addEventListener('keyup', disableClear);
 // from top left, to top right, and so on.
 
 
-function taskListButtonHandler() {
+function taskListButtonHandler(event) {
   createTaskList();
   clearSidebar();
+  event.preventDefault();
 }
 
 function createTaskList() {
@@ -44,7 +45,9 @@ function createTaskList() {
     </ul>
     <div class="divider">
     <input type="image" class="urgent-button" src="check-yo-self-icons/urgent.svg"/>
+    <p>URGENT</p>
     <input type="image" class="delete-button" src="check-yo-self-icons/delete.svg"/>
+    <p>DELETE</p>
     </div>`
 };
 
