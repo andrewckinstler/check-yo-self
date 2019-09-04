@@ -8,7 +8,7 @@ var taskTitle = document.querySelector('.title');
 
 addTasks.addEventListener('click', appendTask);
 makeTaskBtn.addEventListener('click', createTaskList);
-document.querySelectorAll('.form').forEach(function(form) {
+document.querySelectorAll('.form-title').forEach(function(form) {
   form.addEventListener('keyup', disableClear);
 });
 
@@ -48,7 +48,7 @@ function createTaskList() {
 //   }
 
 function appendTask() {
-  taskList.innerHTML += `<li><button class="delete-button">X</button>${taskInput.value}</li>`
+  taskList.innerHTML += `<li class="appended"><button class="delete-button">X</button>${taskInput.value}</li>`
 };
 
 function disableClear() {

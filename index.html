@@ -18,16 +18,17 @@
       </div>
     </header>
     <section class="top-left">
-      <span class="form-text">Task title</span>
-      <input class="form title" type="text" name="Task title"></input>
+      <span class="form-text">Task Title</span>
+      <input class="form-title" type="text" name="Task title"></input>
       <section class="task-list">
         <ul>
+          <li class="appended"><button class="task-delete"><img src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</li>
         </ul>
       </section>
-      <span class="form-text">Task item</span>
+      <span class="form-text">Task Item</span>
       <div class="task-form">
         <input class="form-item" type="text" name="" value="">
-        <button class="add-task">+</button>
+        <button class="add-task"><span class="plussign">+</span></button>
       </div>
       <button class="button make-list">Make Task List</button>
       <button disabled class="button clear">Clear All</button>
