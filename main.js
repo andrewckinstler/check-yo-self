@@ -1,4 +1,3 @@
-
 var taskList = document.querySelector('.task-list');
 var addTasks = document.querySelector('.add-task');
 var taskInput = document.querySelector('.form-item');
@@ -7,6 +6,7 @@ var mainSection = document.querySelector('.main');
 var taskTitle = document.querySelector('.form-title');
 var taskList = document.querySelector('.task-list');
 var clearButton = document.querySelector('.clear');
+var deleteTask = document.querySelector('.appended')
 
 addTasks.addEventListener('click', appendTask);
 
@@ -17,6 +17,7 @@ makeTaskBtn.addEventListener('click', taskListButtonHandler);
 clearButton.addEventListener('click', clearSidebar);
 taskTitle.addEventListener('keyup', disableClear);
 taskInput.addEventListener('keyup', disableClear);
+taskList.addEventListener('click', deleteTaskItem);
 
 // hope this works
 
@@ -37,8 +38,8 @@ function taskListButtonHandler(event) {
 function createTaskList() {
   console.log('does it work?');
   mainSection.innerHTML +=
-  // taskList.innerHTML;
-  `<article class="task-card">
+    // taskList.innerHTML;
+    `<article class="task-card">
     <div class="divider divider-top">
       <h4>${taskTitle.value}</h4>
     </div>
@@ -69,7 +70,7 @@ function clearSidebar() {
 
 
 function appendTask() {
-  taskList.innerHTML += `<li class="appended"><button class="delete-button">X</button>${taskInput.value}</li>`
+  taskList.innerHTML += `<div class="appended"><button class="task-delete"><img src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`
 };
 
 function disableClear() {
