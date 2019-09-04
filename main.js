@@ -5,13 +5,14 @@ var taskInput = document.querySelector('.form-item');
 var makeTaskBtn = document.querySelector('.make-list');
 var mainSection = document.querySelector('.main');
 var taskTitle = document.querySelector('.title');
-var taskList = document.querySelector('.task-list')
+var taskList = document.querySelector('.task-list');
+var clearButton = document.querySelector('.clear');
 
 addTasks.addEventListener('click', appendTask);
 makeTaskBtn.addEventListener('click', taskListButtonHandler);
-document.querySelectorAll('.form').forEach(function(form) {
-  form.addEventListener('keyup', disableClear);
-});
+clearButton.addEventListener('click', clearSidebar);
+taskTitle.addEventListener('keyup', disableClear);
+taskInput.addEventListener('keyup', disableClear);
 
 // input: click
 // output: create new task list card
@@ -23,7 +24,7 @@ document.querySelectorAll('.form').forEach(function(form) {
 
 function taskListButtonHandler() {
   createTaskList();
-  clearFields();
+  clearSidebar();
 }
 
 function createTaskList() {
@@ -43,10 +44,11 @@ function createTaskList() {
     </div>`
 };
 
-function clearFields() {
+function clearSidebar() {
   taskTitle.value = '';
   taskInput.value = '';
   taskList.innerHTML = '';
+  clearButton.disabled = true;
 }
 // Ertmer's pseudo code for click on make task list button
 // input: click,
@@ -62,7 +64,11 @@ function appendTask() {
 };
 
 function disableClear() {
-  if (document.querySelector('.title') === '' || document.querySelector('.form-item') === '') {
-    document.querySelector('.clear').disabled = true;
-  };
+  if (taskTitle.value === '' || taskInput.value === '') {
+    clearButton.disabled = true;
+    addTasks.disabled = true;
+  } else {
+    clearButton.disabled = false;
+    addTasks.disabled = false;
+  }
 };
