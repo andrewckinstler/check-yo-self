@@ -5,10 +5,12 @@ var taskInput = document.querySelector('.form-item');
 var makeTaskBtn = document.querySelector('.make-list');
 var mainSection = document.querySelector('.main');
 var taskTitle = document.querySelector('.title');
-var taskList = document.querySelector('.task-list')
+var taskList = document.querySelector('.task-list');
+var clearButton = document.querySelector('.clear');
 
 addTasks.addEventListener('click', appendTask);
 makeTaskBtn.addEventListener('click', taskListButtonHandler);
+clearButton.addEventListener('click', clearSidebar);
 document.querySelectorAll('.form').forEach(function(form) {
   form.addEventListener('keyup', disableClear);
 });
@@ -23,7 +25,7 @@ document.querySelectorAll('.form').forEach(function(form) {
 
 function taskListButtonHandler() {
   createTaskList();
-  clearFields();
+  clearSidebar();
 }
 
 function createTaskList() {
@@ -43,7 +45,7 @@ function createTaskList() {
     </div>`
 };
 
-function clearFields() {
+function clearSidebar() {
   taskTitle.value = '';
   taskInput.value = '';
   taskList.innerHTML = '';
