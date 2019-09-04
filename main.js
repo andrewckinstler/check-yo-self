@@ -1,4 +1,9 @@
 var makeTaskBtn = document.querySelector('.make-task');
+var mainSection = document.querySelector('.main');
+var taskTitle = document.querySelector('.title');
+var taskItem = document.querySelector('.item');
+
+
 
 makeTaskBtn.addEventListener('click', createTaskList);
 
@@ -11,4 +16,14 @@ makeTaskBtn.addEventListener('click', createTaskList);
 // from top left, to top right, and so on.
 function createTaskList() {
   console.log('does it work?');
-}
+  mainSection.innerHTML +=
+  `<article>
+    <h6>${taskTitle.value}</h6>
+    <div class="divider"></div>
+    <ul>
+      <li>stuff 1</li>
+      <li>stuff 2</li>
+      <li>stuff 3</li>
+    </ul>
+  </article>`
+};
