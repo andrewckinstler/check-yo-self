@@ -5,13 +5,18 @@ var taskInput = document.querySelector('.form-item');
 var makeTaskBtn = document.querySelector('.make-list');
 var mainSection = document.querySelector('.main');
 var taskTitle = document.querySelector('.title');
-var taskList = document.querySelector('.task-list')
+var taskList = document.querySelector('.task-list');
+var clearButton = document.querySelector('.clear');
 
 addTasks.addEventListener('click', appendTask);
-makeTaskBtn.addEventListener('click', taskListButtonHandler);
-document.querySelectorAll('.form').forEach(function(form) {
+
+document.querySelectorAll('.form-title').forEach(function(form) {
   form.addEventListener('keyup', disableClear);
 });
+makeTaskBtn.addEventListener('click', taskListButtonHandler);
+clearButton.addEventListener('click', clearSidebar);
+taskTitle.addEventListener('keyup', disableClear);
+taskInput.addEventListener('keyup', disableClear);
 
 // input: click
 // output: create new task list card
@@ -50,6 +55,7 @@ function clearSidebar() {
   taskTitle.value = '';
   taskInput.value = '';
   taskList.innerHTML = '';
+  clearButton.disabled = true;
 }
 // Ertmer's pseudo code for click on make task list button
 // input: click,
@@ -61,11 +67,15 @@ function clearSidebar() {
 
 
 function appendTask() {
-  taskList.innerHTML += `<li><button class="delete-button">X</button>${taskInput.value}</li>`
+  taskList.innerHTML += `<li class="appended"><button class="delete-button">X</button>${taskInput.value}</li>`
 };
 
 function disableClear() {
-  if (document.querySelector('.title') === '' || document.querySelector('.form-item') === '') {
-    document.querySelector('.clear').disabled = true;
-  };
+  if (taskTitle.value === '' || taskInput.value === '') {
+    clearButton.disabled = true;
+    addTasks.disabled = true;
+  } else {
+    clearButton.disabled = false;
+    addTasks.disabled = false;
+  }
 };

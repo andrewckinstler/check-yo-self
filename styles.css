@@ -42,7 +42,9 @@ h1 {
 .search {
   width: 57px;
   padding: 10px;
-  border: 1px solid #FFF;
+  border: 1px solid #C8D3D9;
+  border-radius: 3px 0 0 3px;
+  background-color: #C8D3D9;
 }
 
 .search-form {
@@ -50,33 +52,38 @@ h1 {
   height: 60px;
   font-size: 18px;
   padding-left: 10px;
-}
-
-.form-text {
-  display: block;
+  border-radius: 0 3px 3px 0;
+  border: none;
 }
 
 .task-form {
   display: flex;
   width: 100%;
   margin: auto;
-  padding-left: 18px;
+  padding: 0 0 20px 15px;
 }
 
 .form-item {
-  height: 50px;
-  width: 80%;
+  padding: 20px;
+  width: 81%;
+  border: none;
+  border-radius: 3px 0 0 3px;
 }
 
 .add-task {
+  display: flex;
   border: 1px solid #1F1F3D;
   background-color: #1F1F3D;
   color: #FFF;
   font-size: 50px;
   font-weight: 300;
   width: 15%;
-  height: 50px;
-  padding-bottom: 5px;
+  height: 60px;
+  border-radius: 0 3px 3px 0;
+}
+
+.plussign {
+  margin: 0 auto 5px auto;
 }
 
 .top-left {
@@ -85,7 +92,7 @@ h1 {
   flex-flow: column wrap;
   justify-content: flex-end;
   grid-area: sidetop;
-  padding: 30px 15px 15px 15px;
+  padding: 30px 0 30px 0;
 }
 
 .bottom-left {
@@ -95,30 +102,52 @@ h1 {
   flex-flow: column wrap;
   justify-content: flex-start;
   border-top: 1px solid #C7D3D8;
-  padding: 15px;
+  padding-top: 30px;
   height: 430px;
 }
 
-.form {
-  width: 90%;
-  padding: 15px 0;
-  margin: 0 auto;
+.form-title {
+  width: 93%;
+  padding: 20px 0;
+  margin: 0 auto 15px auto;
   border: none;
+  border-radius: 3px;
 }
 
 .form-text {
-  margin: 0 0 3px 25px;
+  font-size: 22px;
+  margin: 0 0 6px 16px;
   color: #F3F6F7;
+}
+
+.task-delete {
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  border: none;
+  margin-right: 10px;
+}
+
+.appended {
+  color: #FFF;
+  list-style: none;
+  text-align: left;
+  font-size: 22px;
+  margin-left: 12%;
+  padding-bottom: 5px;
+  vertical-align: middle;
 }
 
 .button {
   background-color: #1F1F3D;
   border: none;
+  border-radius: 3px;
   color: #FFF;
-  width: 90%;
+  width: 93%;
   margin: 10px auto;
-  padding: 10px 0;
-  font-size: 16px;
+  padding: 15px 0;
+  font-size: 26px;
+  font-weight: 400;
 }
 
 .clear:disabled {
