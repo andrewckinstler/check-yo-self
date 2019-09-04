@@ -150,7 +150,7 @@ h1 {
   font-weight: 400;
 }
 
-.clear:disabled {
+.button-disable:disabled {
   background-color: grey;
 }
 
