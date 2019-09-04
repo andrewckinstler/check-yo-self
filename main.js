@@ -46,6 +46,7 @@ function createTaskList() {
 function clearFields() {
   taskTitle.value = '';
   taskInput.value = '';
+  taskList.innerHTML = '';
 }
 // Ertmer's pseudo code for click on make task list button
 // input: click,
