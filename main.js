@@ -20,6 +20,7 @@ clearButton.addEventListener('click', clearSidebar);
 taskTitle.addEventListener('keyup', disableClear);
 taskInput.addEventListener('keyup', disableClear);
 taskList.addEventListener('click', deleteTaskItem);
+mainSection.addEventListener('click', removeCard)
 
 function taskListButtonHandler(event) {
   createTaskList();
@@ -78,11 +79,11 @@ function disableClear() {
 };
 
 function deleteTaskItem(event) {
-  console.log(event)
   if (event.target.className === 'delete-img') {
     event.target.closest('div').remove();
   }
 };
+
 
 // Ertmer's pseudo for urgent button change class function
 // input: click
@@ -102,3 +103,10 @@ function makeUrgent(event) {
     event.target.closest('.divider-top').className = 'urgent-divider-top';
   }
 }
+
+function removeCard(event) {
+  if (event.target.className === 'delete-button') {
+    event.target.closest('article').remove();
+  }
+};
+
