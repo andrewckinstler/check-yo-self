@@ -116,6 +116,9 @@ function deleteTaskItem(event) {
 // event listener on the parent element of the button? main?, since that is the
 // closest container that *isnt* dynamically added? or the dynamic div that contains
 // the button?
+
+// this seems too ineffiecent - maybe i need to change the class name and then
+// target the innerHTML of that new class?
 function makeUrgent(event) {
   console.log(event);
   if (event.target.className === ('urgent-button')) {
