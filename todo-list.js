@@ -1,9 +1,9 @@
 class ToDoList {
-  constructor(id,titleString,trueOrFalse) {
-    this.id = id;
-    this.title = titleString;
-    this.urgent = trueOrFalse;
-    this.tasks = [];
+  constructor(cardContents) {
+    this.id = Date.now();
+    this.title = cardContents.title;
+    this.urgent = cardContents.trueOrFalse || false;
+    this.tasks = [IndTasks.tasks];
   };
   saveToStorage() {
 
@@ -19,4 +19,6 @@ class ToDoList {
   };
 };
 
-module.exports = ToDoList;
+// if(typeof module !== 'undefined') {
+//   module.exports = ToDoList;
+// }

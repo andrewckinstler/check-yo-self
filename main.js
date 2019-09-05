@@ -10,10 +10,6 @@ var deleteTask = document.querySelector('.appended');
 var urgentButton = document.querySelector('.urgentButton');
 var tasks = [];
 
-
-addTasks.addEventListener('click', appendTask);
-mainSection.addEventListener('click', makeUrgent);
-
 document.querySelectorAll('.form-title').forEach(function(form) {
   form.addEventListener('keyup', disableClear);
 });
@@ -22,7 +18,9 @@ clearButton.addEventListener('click', clearSidebar);
 taskTitle.addEventListener('keyup', disableClear);
 taskInput.addEventListener('keyup', disableClear);
 taskList.addEventListener('click', deleteTaskItem);
-mainSection.addEventListener('click', removeCard)
+mainSection.addEventListener('click', removeCard);
+addTasks.addEventListener('click', appendTask);
+mainSection.addEventListener('click', makeUrgent);
 
 function taskListButtonHandler(event) {
   createTaskList();
@@ -31,6 +29,8 @@ function taskListButtonHandler(event) {
 }
 
 function createTaskList() {
+  var toDoCard = new ToDoList();
+  console.log(toDoCard);
   document.querySelector('.no-card-text').style.display = 'none';
   mainSection.innerHTML +=
     `<article class="task-card">
@@ -67,6 +67,8 @@ function clearSidebar() {
 };
 
 function appendTask() {
+  var task = new IndTasks(taskInput.value);
+  console.log(task);
   taskList.innerHTML += `<div class="appended"><button class="task-delete"><img  class="delete-img" src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`;
   tasks.push(
   `<article class="task-card">
