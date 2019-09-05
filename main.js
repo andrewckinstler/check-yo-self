@@ -29,7 +29,7 @@ function taskListButtonHandler(event) {
 }
 
 function createTaskList() {
-  var toDoCard = new ToDoList();
+  var toDoCard = new ToDoList({title: taskTitle.value}, tasks);
   console.log(toDoCard);
   document.querySelector('.no-card-text').style.display = 'none';
   mainSection.innerHTML +=
@@ -50,7 +50,8 @@ function createTaskList() {
         <p>DELETE</p>
       </div>
     </div>
-  </article>`
+  </article>`;
+  tasks = [];
 };
 
 function disableAll() {
@@ -66,29 +67,42 @@ function clearSidebar() {
   disableAll();
 };
 
+// one func to handle instantiation of ToDo list class
+//
+// loop through node list and add instantite the task class
+// next line is to push into locally scoped arraY
+// instantiate new todo list obj, passing previous array through the constructor
+// from there local storage or whatevs
+//
+
+
+
+
+
 function appendTask() {
   var task = new IndTasks(taskInput.value);
-  console.log(task);
+  tasks.push(task);
+  console.log(tasks);
   taskList.innerHTML += `<div class="appended"><button class="task-delete"><img  class="delete-img" src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`;
-  tasks.push(
-  `<article class="task-card">
-    <div class="divider divider-top">
-      <h4>${taskTitle.value}</h4>
-    </div>
-    <div>
-      ${taskList.innerHTML}
-    </div>
-    <div class="divider">
-      <div class="task-card-bundle-button">
-        <input type="image" class="urgent-button" src="check-yo-self-icons/urgent.svg"/>
-        <p>URGENT</p>
-      </div>
-      <div class="task-card-bundle-button">
-        <input type="image" class="delete-button" src="check-yo-self-icons/delete.svg"/>
-        <p>DELETE</p>
-      </div>
-    </div>
-  </article>`)
+  // tasks.push(
+  // `<article class="task-card">
+  //   <div class="divider divider-top">
+  //     <h4>${taskTitle.value}</h4>
+  //   </div>
+  //   <div>
+  //     ${taskList.innerHTML}
+  //   </div>
+  //   <div class="divider">
+  //     <div class="task-card-bundle-button">
+  //       <input type="image" class="urgent-button" src="check-yo-self-icons/urgent.svg"/>
+  //       <p>URGENT</p>
+  //     </div>
+  //     <div class="task-card-bundle-button">
+  //       <input type="image" class="delete-button" src="check-yo-self-icons/delete.svg"/>
+  //       <p>DELETE</p>
+  //     </div>
+  //   </div>
+  // </article>`)
 };
 
 function disableClear() {
@@ -128,7 +142,7 @@ function makeUrgent(event) {
     event.target.closest('.divider').className = 'urgent-divider';
     event.target.closest('.divider-top').className = 'urgent-divider-top';
   }
-}
+};
 
 function removeCard(event) {
   if (event.target.className === 'delete-button') {

@@ -3,7 +3,7 @@ class ToDoList {
     this.id = Date.now();
     this.title = cardContents.title;
     this.urgent = cardContents.trueOrFalse || false;
-    this.tasks = [IndTasks.tasks];
+    this.tasks = {tasks};
   };
   saveToStorage() {
 
@@ -18,7 +18,3 @@ class ToDoList {
 
   };
 };
-
-// if(typeof module !== 'undefined') {
-//   module.exports = ToDoList;
-// }
