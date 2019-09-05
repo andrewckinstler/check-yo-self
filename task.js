@@ -14,4 +14,4 @@ class IndTasks {
 
 
 
-module.exports = IndTasks
+// module.exports = IndTasks
