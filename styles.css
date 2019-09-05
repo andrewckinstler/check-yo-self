@@ -8,12 +8,14 @@
 .container {
   display: grid;
   grid-template-areas:
-    "head head head"
-    "sidetop main main"
-    "sidetop main main"
-    "sidebottom main main"
-    "sidebottom main main";
-  grid-template-columns: 33%;
+  "head"
+  "sidetop"
+  "sidetop"
+  "sidebottom"
+  "sidebottom"
+  "main"
+  "main";
+  /* grid-template-columns: 33%; */
 }
 
 header {
@@ -100,7 +102,7 @@ h1 {
   justify-content: flex-start;
   border-top: 1px solid #C7D3D8;
   padding-top: 30px;
-  height: 430px;
+  height: 210px;
 }
 
 .form-title {
@@ -243,6 +245,16 @@ h1 {
 }
 
 @media (min-width: 850px) {
+  .container {
+      display: grid;
+      grid-template-areas:
+        "head head head"
+        "sidetop main main"
+        "sidetop main main"
+        "sidebottom main main"
+        "sidebottom main main";
+      grid-template-columns: 33%;
+    }
   header {
     display: flex;
     align-items: center;
@@ -258,3 +270,12 @@ h1 {
     width: 350px;
   }
 }
+
+/* @media (max-width: 700px) {
+  .container {
+    grid-template-areas: "head"
+    "sidetop"
+    "sidebottom"
+    "main";
+  }
+} */
