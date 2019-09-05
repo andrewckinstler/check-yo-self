@@ -94,6 +94,9 @@ function deleteTaskItem(event) {
 // event listener on the parent element of the button? main?, since that is the
 // closest container that *isnt* dynamically added? or the dynamic div that contains
 // the button?
-function makeUrgent() {
-  console.log('does it work?');
+function makeUrgent(event) {
+  console.log(event);
+  if (event.target.className === ('urgent-button')) {
+    event.target.closest('article').className = 'urgent-task-card';
+  }
 }
