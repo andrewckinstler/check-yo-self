@@ -98,5 +98,7 @@ function makeUrgent(event) {
   console.log(event);
   if (event.target.className === ('urgent-button')) {
     event.target.closest('article').className = 'urgent-task-card';
+    event.target.closest('.divider').className = 'urgent-divider';
+    event.target.closest('.divider-top').className = 'urgent-divider-top';
   }
 }
