@@ -19,16 +19,6 @@ taskTitle.addEventListener('keyup', disableClear);
 taskInput.addEventListener('keyup', disableClear);
 taskList.addEventListener('click', deleteTaskItem);
 
-// hope this works
-
-// input: click
-// output: create new task list card
-// user will add task title to input, and task items to input
-// when they click make task list button, the title and individual tasks
-// will be added to a new card in the main section, spilling
-// from top left, to top right, and so on.
-
-
 function taskListButtonHandler(event) {
   createTaskList();
   clearSidebar();
@@ -71,14 +61,6 @@ function clearSidebar() {
   taskList.innerHTML = '';
   disableAll();
 };
-// Ertmer's pseudo code for click on make task list button
-// input: click,
-// output: several funcs, wrapped up in button handler function
-// 1 create new card (create task list func) DUNZO
-// 2 clear fields
-// 3 disable button until keydown
-
-
 
 function appendTask() {
   taskList.innerHTML += `<div class="appended"><button class="task-delete"><img  class="delete-img" src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`
