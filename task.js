@@ -1,9 +1,17 @@
-class Tasks {
+class IndTasks {
   constructor(taskItem,isCompleted) {
     this.taskItem = taskItem;
-    this.isCompleted = isCompleted;
-    // this.id = id
+    this.isCompleted = false;
+    this.id = Date.now();
   }
 };
 
-module.exports = Tasks
+
+
+
+
+
+
+
+
+module.exports = IndTasks

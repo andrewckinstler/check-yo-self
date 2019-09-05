@@ -3,7 +3,7 @@ class ToDoList {
     this.id = cardContents.id || Date.now();
     this.title = cardContents.title;
     this.urgent = cardContents.trueOrFalse || false;
-    this.tasks = [];
+    this.tasks = [IndTasks.tasks];
   };
   saveToStorage() {
 
