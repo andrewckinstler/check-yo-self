@@ -135,7 +135,10 @@ h1 {
   margin-left: 12%;
   padding: 5px;
   vertical-align: middle;
-  te
+}
+
+.list-text {
+  display: block;
 }
 
 .button {

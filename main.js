@@ -44,9 +44,9 @@ function createTaskList() {
     <div class="divider divider-top">
       <h4>${taskTitle.value}</h4>
     </div>
-    <ul>
+    <div>
       ${taskList.innerHTML}
-    </ul>
+    </div>
     <div class="divider">
       <div class="task-card-bundle-button">
         <input type="image" class="urgent-button" src="check-yo-self-icons/urgent.svg"/>
