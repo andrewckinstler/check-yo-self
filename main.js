@@ -36,7 +36,7 @@ function taskListButtonHandler(event) {
 }
 
 function createTaskList() {
-  console.log('does it work?');
+  document.querySelector('.no-card-text').style.display = 'none';
   mainSection.innerHTML +=
     // taskList.innerHTML;
     `<article class="task-card">
