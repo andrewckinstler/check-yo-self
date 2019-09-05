@@ -18,6 +18,7 @@ clearButton.addEventListener('click', clearSidebar);
 taskTitle.addEventListener('keyup', disableClear);
 taskInput.addEventListener('keyup', disableClear);
 taskList.addEventListener('click', deleteTaskItem);
+mainSection.addEventListener('click', removeCard)
 
 // hope this works
 
@@ -95,8 +96,14 @@ function disableClear() {
 };
 
 function deleteTaskItem(event) {
-  console.log(event)
   if (event.target.className === 'delete-img') {
     event.target.closest('div').remove();
+  }
+};
+
+
+function removeCard(event) {
+  if (event.target.className === 'delete-button') {
+    event.target.closest('article').remove();
   }
 };
