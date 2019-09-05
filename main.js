@@ -6,9 +6,11 @@ var mainSection = document.querySelector('.main');
 var taskTitle = document.querySelector('.form-title');
 var taskList = document.querySelector('.task-list');
 var clearButton = document.querySelector('.clear');
-var deleteTask = document.querySelector('.appended')
+var deleteTask = document.querySelector('.appended');
+var urgentButton = document.querySelector('.urgentButton')
 
 addTasks.addEventListener('click', appendTask);
+mainSection.addEventListener('click', makeUrgent);
 
 document.querySelectorAll('.form-title').forEach(function(form) {
   form.addEventListener('keyup', disableClear);
@@ -28,7 +30,6 @@ function taskListButtonHandler(event) {
 function createTaskList() {
   document.querySelector('.no-card-text').style.display = 'none';
   mainSection.innerHTML +=
-    // taskList.innerHTML;
     `<article class="task-card">
     <div class="divider divider-top">
       <h4>${taskTitle.value}</h4>
@@ -93,3 +94,6 @@ function deleteTaskItem(event) {
 // event listener on the parent element of the button? main?, since that is the
 // closest container that *isnt* dynamically added? or the dynamic div that contains
 // the button?
+function makeUrgent() {
+  console.log('does it work?');
+}
