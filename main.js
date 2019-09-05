@@ -82,3 +82,12 @@ function deleteTaskItem(event) {
     event.target.closest('div').remove();
   }
 };
+
+Ertmer's pseudo for urgent button change class function
+input: click
+output: add class of 'urgent' and style the exisiting card appropriately
+
+gen. idea: upon click, the card adopts a new class with styling to match urgent card comp
+and button should stay in it's active state(red icon).
+
+event listener on the parent element of the button?
