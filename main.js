@@ -7,7 +7,9 @@ var taskTitle = document.querySelector('.form-title');
 var taskList = document.querySelector('.task-list');
 var clearButton = document.querySelector('.clear');
 var deleteTask = document.querySelector('.appended');
-var urgentButton = document.querySelector('.urgentButton')
+var urgentButton = document.querySelector('.urgentButton');
+var tasks = [];
+
 
 addTasks.addEventListener('click', appendTask);
 mainSection.addEventListener('click', makeUrgent);
@@ -65,7 +67,26 @@ function clearSidebar() {
 };
 
 function appendTask() {
-  taskList.innerHTML += `<div class="appended"><button class="task-delete"><img  class="delete-img" src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`
+  taskList.innerHTML += `<div class="appended"><button class="task-delete"><img  class="delete-img" src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`;
+  tasks.push(
+  `<article class="task-card">
+    <div class="divider divider-top">
+      <h4>${taskTitle.value}</h4>
+    </div>
+    <div>
+      ${taskList.innerHTML}
+    </div>
+    <div class="divider">
+      <div class="task-card-bundle-button">
+        <input type="image" class="urgent-button" src="check-yo-self-icons/urgent.svg"/>
+        <p>URGENT</p>
+      </div>
+      <div class="task-card-bundle-button">
+        <input type="image" class="delete-button" src="check-yo-self-icons/delete.svg"/>
+        <p>DELETE</p>
+      </div>
+    </div>
+  </article>`)
 };
 
 function disableClear() {
@@ -109,4 +130,3 @@ function removeCard(event) {
     event.target.closest('article').remove();
   }
 };
-
