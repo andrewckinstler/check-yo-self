@@ -137,10 +137,6 @@ h1 {
   vertical-align: middle;
 }
 
-.list-text {
-  display: block;
-}
-
 .button {
   background-color: #1F1F3D;
   border: none;
@@ -157,6 +153,13 @@ h1 {
   background-color: grey;
 }
 
+.no-card-text {
+  text-align: center;
+  font-size: 35px;
+  color: lightgrey;
+  margin: 35% 0% 0% 15%;
+}
+
 .task-card {
   grid-area: main;
   flex-direction: column;
@@ -168,7 +171,34 @@ h1 {
   margin: 5%;
   background-color: #FAFDFF;
   width: 90%;
+}
 
+.urgent-task-card {
+  /* border: 2px solid #FFC30C; */
+  grid-area: main;
+  flex-direction: column;
+  text-align: center;
+  border-left: 2px solid #FFC30C;
+  border-right: 2px solid #FFC30C;
+  display: flex;
+  /* align-items: center; */
+  margin: 5%;
+  background-color: #FFE89D;
+  width: 90%;
+}
+
+.urgent-divider {
+  border-top: 2px solid #FFC30C;
+  border-bottom: 2px solid #FFC30C;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: row;
+}
+
+.urgent-divider-top {
+  justify-content: flex-start;
+  padding: 10px;
 }
 
 .task-card .appended {
@@ -184,12 +214,14 @@ h1 {
   justify-content: space-between;
   width: 100%;
   flex-direction: row;
-}
-
-.divider-top {
   justify-content: flex-start;
   padding: 10px;
 }
+
+/* .divider-top {
+  justify-content: flex-start;
+  padding: 10px;
+} */
 
 .urgent-button {
   height: 20px;

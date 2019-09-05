@@ -6,9 +6,11 @@ var mainSection = document.querySelector('.main');
 var taskTitle = document.querySelector('.form-title');
 var taskList = document.querySelector('.task-list');
 var clearButton = document.querySelector('.clear');
-var deleteTask = document.querySelector('.appended')
+var deleteTask = document.querySelector('.appended');
+var urgentButton = document.querySelector('.urgentButton')
 
 addTasks.addEventListener('click', appendTask);
+mainSection.addEventListener('click', makeUrgent);
 
 document.querySelectorAll('.form-title').forEach(function(form) {
   form.addEventListener('keyup', disableClear);
@@ -20,16 +22,6 @@ taskInput.addEventListener('keyup', disableClear);
 taskList.addEventListener('click', deleteTaskItem);
 mainSection.addEventListener('click', removeCard)
 
-// hope this works
-
-// input: click
-// output: create new task list card
-// user will add task title to input, and task items to input
-// when they click make task list button, the title and individual tasks
-// will be added to a new card in the main section, spilling
-// from top left, to top right, and so on.
-
-
 function taskListButtonHandler(event) {
   createTaskList();
   clearSidebar();
@@ -37,9 +29,8 @@ function taskListButtonHandler(event) {
 }
 
 function createTaskList() {
-  console.log('does it work?');
+  document.querySelector('.no-card-text').style.display = 'none';
   mainSection.innerHTML +=
-    // taskList.innerHTML;
     `<article class="task-card">
     <div class="divider divider-top">
       <h4>${taskTitle.value}</h4>
@@ -72,14 +63,6 @@ function clearSidebar() {
   taskList.innerHTML = '';
   disableAll();
 };
-// Ertmer's pseudo code for click on make task list button
-// input: click,
-// output: several funcs, wrapped up in button handler function
-// 1 create new card (create task list func) DUNZO
-// 2 clear fields
-// 3 disable button until keydown
-
-
 
 function appendTask() {
   taskList.innerHTML += `<div class="appended"><button class="task-delete"><img  class="delete-img" src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`
@@ -102,8 +85,28 @@ function deleteTaskItem(event) {
 };
 
 
+// Ertmer's pseudo for urgent button change class function
+// input: click
+// output: add class of 'urgent' and style the exisiting card appropriately
+//
+// gen. idea: upon click, the card adopts a new class with styling to match urgent card comp
+// and button should stay in it's active state(red icon).
+//
+// event listener on the parent element of the button? main?, since that is the
+// closest container that *isnt* dynamically added? or the dynamic div that contains
+// the button?
+function makeUrgent(event) {
+  console.log(event);
+  if (event.target.className === ('urgent-button')) {
+    event.target.closest('article').className = 'urgent-task-card';
+    event.target.closest('.divider').className = 'urgent-divider';
+    event.target.closest('.divider-top').className = 'urgent-divider-top';
+  }
+}
+
 function removeCard(event) {
   if (event.target.className === 'delete-button') {
     event.target.closest('article').remove();
   }
 };
+
