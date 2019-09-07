@@ -9,6 +9,8 @@ var clearButton = document.querySelector('.clear');
 var deleteTask = document.querySelector('.appended');
 var urgentButton = document.querySelector('.urgentButton');
 var tasks = [];
+var toDoCards = [];
+
 
 document.querySelectorAll('.form-title').forEach(function(form) {
   form.addEventListener('keyup', disableClear);
@@ -21,12 +23,39 @@ taskList.addEventListener('click', deleteTaskItem);
 mainSection.addEventListener('click', removeCard);
 addTasks.addEventListener('click', appendTask);
 mainSection.addEventListener('click', makeUrgent);
+// individualTask.addEventListener('click', completeTask);
+mainSection.addEventListener('click', taskHandler);
+
+
 
 function taskListButtonHandler(event) {
   createTaskList();
   clearSidebar();
   event.preventDefault();
 }
+
+// task icon switch function
+// span around each list content
+// to target the text specifically
+// add circle icon as default
+//event listener with toggle on divs we are appending
+// add checked icon into javascript
+// inner html switch based on click
+//
+//
+
+// object card change
+// update ToDolist.isCompleted in main.js
+// when ToDoList.isCompleted = true {
+// update the icon and styling on that particular IndTask.
+// }
+//
+//
+//
+//
+//
+//
+//
 
 function createTaskList() {
   var toDoCard = new ToDoList({title: taskTitle.value}, tasks);
@@ -74,16 +103,24 @@ function clearSidebar() {
 // instantiate new todo list obj, passing previous array through the constructor
 // from there local storage or whatevs
 //
+// dataset.id
 
 
-
+// new find ID function
+//  once we have the id we will use it as an argument
+//
+//
+//
+//
+//
+//
 
 
 function appendTask() {
-  var task = new IndTasks(taskInput.value);
+  var task = new IndTask(taskInput.value);
   tasks.push(task);
   console.log(tasks);
-  taskList.innerHTML += `<div class="appended"><button class="task-delete"><img  class="delete-img" src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`;
+  taskList.innerHTML += `<div data-id =${task.id} class="appended"><button class="task-delete"><img  class="delete-img" src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`;
   // tasks.push(
   // `<article class="task-card">
   //   <div class="divider divider-top">
@@ -149,3 +186,29 @@ function removeCard(event) {
     event.target.closest('article').remove();
   }
 };
+
+function taskHandler(event) {
+  if (event.target.className === 'delete-img') {
+    var getDiv = event.target.closest('div');
+    var taskId = getDiv.dataset.id;
+    console.log(taskId);
+    console.log(tasks);
+    // var closestList = tasks.findIndex(taskId);
+    console.log(tasks.findIndex(function(task) {
+      console.log(task);
+      return task.id === taskId;
+    }));
+  }
+};
+
+// function getId(event) {
+    // var getDiv = event.target.closest('div');
+    // var taskId = getDiv.dataset.id;
+    // var closestList = tasks.find(taskId);
+    // console.log(closestList);
+    // return taskId;
+// };
+
+// function completeTask() {
+//   console.log(closestList);
+// };
