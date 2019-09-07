@@ -23,7 +23,7 @@ mainSection.addEventListener('click', removeCard);
 addTasks.addEventListener('click', appendTask);
 mainSection.addEventListener('click', makeUrgent);
 // individualTask.addEventListener('click', completeTask);
-mainSection.addEventListener('click', completeTask);
+mainSection.addEventListener('click', getId);
 
 
 
@@ -114,7 +114,7 @@ function clearSidebar() {
 
 
 // new find ID function
-//  once we have the id we will use it as an argument 
+//  once we have the id we will use it as an argument
 //
 //
 //
@@ -193,3 +193,10 @@ function removeCard(event) {
     event.target.closest('article').remove();
   }
 };
+
+function getId(event) {
+  if (event.target.className === 'delete-img') {
+    var taskId = event.target.closest('div');
+    console.log(taskId.dataset.id);
+  }
+}
