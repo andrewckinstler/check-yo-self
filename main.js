@@ -28,6 +28,30 @@ function taskListButtonHandler(event) {
   event.preventDefault();
 }
 
+// task icon switch function
+// span around each list content
+// to target the text specifically
+// add circle icon as default
+//event listener with toggle on divs we are appending
+// add checked icon into javascript
+// inner html switch based on click
+//
+//
+
+// object card change
+// update ToDolist.isCompleted in main.js
+// when ToDoList.isCompleted = true {
+// update the icon and styling on that particular IndTasks.
+// }
+// 
+//
+//
+//
+//
+//
+//
+
+
 function createTaskList() {
   var toDoCard = new ToDoList({title: taskTitle.value}, tasks);
   console.log(toDoCard);
