@@ -9,6 +9,7 @@ var clearButton = document.querySelector('.clear');
 var deleteTask = document.querySelector('.appended');
 var urgentButton = document.querySelector('.urgentButton');
 var tasks = [];
+var toDoCards = [];
 
 
 document.querySelectorAll('.form-title').forEach(function(form) {
@@ -23,7 +24,7 @@ mainSection.addEventListener('click', removeCard);
 addTasks.addEventListener('click', appendTask);
 mainSection.addEventListener('click', makeUrgent);
 // individualTask.addEventListener('click', completeTask);
-mainSection.addEventListener('click', getId);
+mainSection.addEventListener('click', taskHandler);
 
 
 
@@ -55,14 +56,6 @@ function taskListButtonHandler(event) {
 //
 //
 //
-
-function completeTask(event) {
-  if (event.target.className === 'delete-img') {
-    IndTask.isCompleted = true;
-    console.log("firing");
-    console.log(event);
-  }
-}
 
 function createTaskList() {
   var toDoCard = new ToDoList({title: taskTitle.value}, tasks);
@@ -194,9 +187,28 @@ function removeCard(event) {
   }
 };
 
-function getId(event) {
+function taskHandler(event) {
   if (event.target.className === 'delete-img') {
-    var taskId = event.target.closest('div');
-    console.log(taskId.dataset.id);
+    var getDiv = event.target.closest('div');
+    var taskId = getDiv.dataset.id;
+    console.log(taskId);
+    console.log(tasks);
+    // var closestList = tasks.findIndex(taskId);
+    console.log(tasks.findIndex(function(task) {
+      console.log(task);
+      return task.id === taskId;
+    }));
   }
-}
+};
+
+// function getId(event) {
+    // var getDiv = event.target.closest('div');
+    // var taskId = getDiv.dataset.id;
+    // var closestList = tasks.find(taskId);
+    // console.log(closestList);
+    // return taskId;
+// };
+
+// function completeTask() {
+//   console.log(closestList);
+// };
