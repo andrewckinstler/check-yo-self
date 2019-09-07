@@ -10,6 +10,7 @@ var deleteTask = document.querySelector('.appended');
 var urgentButton = document.querySelector('.urgentButton');
 var tasks = [];
 
+
 document.querySelectorAll('.form-title').forEach(function(form) {
   form.addEventListener('keyup', disableClear);
 });
@@ -21,6 +22,10 @@ taskList.addEventListener('click', deleteTaskItem);
 mainSection.addEventListener('click', removeCard);
 addTasks.addEventListener('click', appendTask);
 mainSection.addEventListener('click', makeUrgent);
+// individualTask.addEventListener('click', completeTask);
+mainSection.addEventListener('click', completeTask);
+
+
 
 function taskListButtonHandler(event) {
   createTaskList();
@@ -41,9 +46,9 @@ function taskListButtonHandler(event) {
 // object card change
 // update ToDolist.isCompleted in main.js
 // when ToDoList.isCompleted = true {
-// update the icon and styling on that particular IndTasks.
+// update the icon and styling on that particular IndTask.
 // }
-// 
+//
 //
 //
 //
@@ -51,6 +56,13 @@ function taskListButtonHandler(event) {
 //
 //
 
+function completeTask(event) {
+  if (event.target.className === 'delete-img') {
+    IndTask.isCompleted = true;
+    console.log("firing");
+    console.log(event);
+  }
+}
 
 function createTaskList() {
   var toDoCard = new ToDoList({title: taskTitle.value}, tasks);
@@ -98,16 +110,24 @@ function clearSidebar() {
 // instantiate new todo list obj, passing previous array through the constructor
 // from there local storage or whatevs
 //
+// dataset.id
 
 
-
+// new find ID function
+//  once we have the id we will use it as an argument 
+//
+//
+//
+//
+//
+//
 
 
 function appendTask() {
-  var task = new IndTasks(taskInput.value);
+  var task = new IndTask(taskInput.value);
   tasks.push(task);
   console.log(tasks);
-  taskList.innerHTML += `<div class="appended"><button class="task-delete"><img  class="delete-img" src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`;
+  taskList.innerHTML += `<div data-id =${task.id} class="appended"><button class="task-delete"><img  class="delete-img" src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`;
   // tasks.push(
   // `<article class="task-card">
   //   <div class="divider divider-top">

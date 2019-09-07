@@ -1,4 +1,4 @@
-class IndTasks {
+class IndTask {
   constructor(taskItem, isCompleted) {
     this.taskItem = taskItem;
     this.isCompleted = false;
