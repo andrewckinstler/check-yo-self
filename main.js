@@ -60,6 +60,7 @@ function taskListButtonHandler(event) {
 function createTaskList() {
   var toDoCard = new ToDoList({title: taskTitle.value}, tasks);
   console.log(toDoCard);
+  console.log(event.target);
   document.querySelector('.no-card-text').style.display = 'none';
   mainSection.innerHTML +=
     `<article class="task-card">
