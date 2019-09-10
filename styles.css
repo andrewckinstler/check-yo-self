@@ -236,7 +236,8 @@ h1 {
 }
 
 .checked-task {
-
+  color: #416A7B;
+  font-style: italic;
 }
 
 /* ul {

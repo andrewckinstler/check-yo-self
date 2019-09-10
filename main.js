@@ -25,6 +25,8 @@ addTasks.addEventListener('click', appendTask);
 mainSection.addEventListener('click', makeUrgent);
 // individualTask.addEventListener('click', completeTask);
 mainSection.addEventListener('click', taskHandler);
+mainSection.addEventListener('click', checkBox);
+
 
 
 function taskListButtonHandler(event) {
@@ -96,7 +98,7 @@ function cardTaskHtml(cardTasks){
   var cardTaskInner = '';
   for (i = 0; i < cardTasks.length; i++){
     cardTaskInner +=
-    `<div data-id =${cardTasks[i].id} class="appended"><button class="task-delete"><img  class="delete-img" src='./check-yo-self-icons/checkbox.svg'></button>${cardTasks[i].taskItem}</div>`
+    `<div data-id =${cardTasks[i].id} class="appended"><button class="task-delete check-me"><img  class="delete-img" src='./check-yo-self-icons/checkbox.svg'></button>${cardTasks[i].taskItem}</div>`
   }
   return cardTaskInner;
 };
@@ -114,13 +116,14 @@ function clearSidebar() {
   disableAll();
 };
 
-function checkTasks (){
-  toDoCards.forEach(function(card) {
-    if(card.id === card.tasks.id) {
-      card.tasks.closest('div').style.display = '.checked-task';
-    }
-  });
-};
+// function checkTasks (event){
+//   toDoCards.forEach(function(card) {
+//     if(card.id === card.tasks.id) {
+//       card.tasks.closest('.appended').style.display = '.checked-task';
+//     }
+//   });
+// };
+
 // one func to handle instantiation of ToDo list class
 //
 // loop through node list and add instantite the task class
@@ -198,6 +201,13 @@ function deleteTaskItem(event) {
 
 // this seems too ineffiecent - maybe i need to change the class name and then
 // target the innerHTML of that new class?
+function checkBox(event) {
+  console.log(event);
+  if (event.target.className === ('check-me')) {
+    event.target.closest('.appended').className = 'appended checked-task';
+  }
+};
+
 function makeUrgent(event) {
   console.log(event);
   if (event.target.className === ('urgent-button')) {
