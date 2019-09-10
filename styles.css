@@ -102,7 +102,7 @@ h1 {
   justify-content: flex-start;
   border-top: 1px solid #C7D3D8;
   padding-top: 30px;
-  height: 210px;
+  height: 400px;
 }
 
 .form-title {
@@ -236,7 +236,7 @@ h1 {
 }
 
 .checked-task {
-  
+
 }
 
 /* ul {
@@ -266,6 +266,17 @@ h1 {
 
   .form-box {
     width: auto;
+  }
+
+  .bottom-left {
+    background-color: #587A8A;
+    grid-area: sidebottom;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    border-top: 1px solid #C7D3D8;
+    padding-top: 30px;
+    height: 210px;
   }
 
   .search-form {
