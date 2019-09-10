@@ -91,7 +91,6 @@ function createTaskList() {
     </div>
   </article>`;
   tasks = [];
-    console.log(toDoCards);
 };
 
 function cardTaskHtml(cardTasks){
@@ -212,10 +211,24 @@ function makeUrgent(event) {
   console.log(event);
   if (event.target.className === ('urgent-button')) {
     event.target.closest('article').className = 'urgent-task-card';
+    var cardId = event.target.closest('article').dataset.id;
+    for (var i = 0; i < toDoCards.length; i++) {
+      // check each index against the cardID
+      console.log('firing');
+      if (parseInt(cardId) === toDoCards[i].id) {
+        toDoCards[i].updateToDo();
+      }
+    }
     event.target.closest('.divider').className = 'urgent-divider';
-    event.target.closest('.divider-top').className = 'urgent-divider-top';
+    // event.target.closest('.divider-top').className = 'urgent-divider-top';
   }
 };
+
+
+// input: click, output: find closest card article☑️
+// take the id of that article, loop through the array of card to find
+// matching ID. then run updateToDo() on that card as a whole.
+
 
 function removeCard(event) {
   if (event.target.className === 'delete-button') {

@@ -1,7 +1,7 @@
 class IndTask {
-  constructor(taskItem, isCompleted) {
+  constructor(taskItem, isCompleted, id) {
     this.taskItem = taskItem;
-    this.isCompleted = false;
-    this.id = Date.now();
+    this.isCompleted = isCompleted || false;
+    this.id = id || Date.now();
   }
 };
