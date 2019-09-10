@@ -1,8 +1,8 @@
 class ToDoList {
-  constructor(cardContents, tasks) {
+  constructor(title, tasks, urgent) {
     this.id = Date.now();
-    this.title = cardContents.title;
-    this.urgent = cardContents.trueOrFalse || false;
+    this.title = title;
+    this.urgent = urgent || false;
     this.tasks = tasks;
   };
   saveToStorage() {
@@ -12,7 +12,7 @@ class ToDoList {
 
   };
   updateToDo() {
-
+    this.urgent = !this.urgent;
   };
   updateTask() {
 
