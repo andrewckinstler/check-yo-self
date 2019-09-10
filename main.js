@@ -96,7 +96,7 @@ function cardTaskHtml(cardTasks){
   var cardTaskInner = '';
   for (i = 0; i < cardTasks.length; i++){
     cardTaskInner +=
-    `<div data-id =${cardTasks[i].id} class="appended"><button class="task-delete"><img  class="delete-img" src='./check-yo-self-icons/delete.svg'></button>${cardTasks[i].taskItem}</div>`
+    `<div data-id =${cardTasks[i].id} class="appended"><button class="task-delete"><img  class="delete-img" src='./check-yo-self-icons/checkbox.svg'></button>${cardTasks[i].taskItem}</div>`
   }
   return cardTaskInner;
 };
@@ -114,6 +114,13 @@ function clearSidebar() {
   disableAll();
 };
 
+function checkTasks (){
+  toDoCards.forEach(function(card) {
+    if(card.id === card.tasks.id) {
+      card.tasks.closest('div').style.display = '.checked-task';
+    }
+  });
+};
 // one func to handle instantiation of ToDo list class
 //
 // loop through node list and add instantite the task class
