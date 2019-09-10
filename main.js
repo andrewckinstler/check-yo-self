@@ -91,7 +91,6 @@ function createTaskList() {
     </div>
   </article>`;
   tasks = [];
-    console.log(toDoCards);
 };
 
 function cardTaskHtml(cardTasks){
@@ -215,8 +214,9 @@ function makeUrgent(event) {
     var cardId = event.target.closest('article').dataset.id;
     for (var i = 0; i < toDoCards.length; i++) {
       // check each index against the cardID
-      if (cardId === toDoCards[i].id) {
-        updateToDo();
+      console.log('firing');
+      if (parseInt(cardId) === toDoCards[i].id) {
+        toDoCards[i].updateToDo();
       }
     }
     event.target.closest('.divider').className = 'urgent-divider';
@@ -224,12 +224,11 @@ function makeUrgent(event) {
   }
 };
 
-function objectUrgent() {
+
 // input: click, output: find closest card article☑️
 // take the id of that article, loop through the array of card to find
 // matching ID. then run updateToDo() on that card as a whole.
 
-}
 
 function removeCard(event) {
   if (event.target.className === 'delete-button') {
