@@ -105,7 +105,7 @@ function cardTaskHtml(cardTasks){
   var cardTaskInner = '';
   for (i = 0; i < cardTasks.length; i++){
     cardTaskInner +=
-    `<div data-id =${cardTasks[i].id} class="appended"><button class="task-delete check-me"><img  class="delete-img" src='./check-yo-self-icons/checkbox.svg'></button>${cardTasks[i].taskItem}</div>`
+    `<div data-id =${cardTasks[i].id} class="appended"><button class="task-delete check-me"><img  class="check-me delete-img" src='./check-yo-self-icons/checkbox.svg'></button>${cardTasks[i].taskItem}</div>`
   }
   return cardTaskInner;
 };
@@ -210,7 +210,7 @@ function deleteTaskItem(event) {
 // target the innerHTML of that new class?
 function checkBox(event) {
   console.log(event);
-  if (event.target.className === ('check-me')) {
+  if (event.target.className === ('check-me delete-img')) {
     event.target.closest('.appended').className = 'appended checked-task';
   }
 };
