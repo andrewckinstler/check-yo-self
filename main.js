@@ -30,7 +30,7 @@ mainSection.addEventListener('click', checkBox);
 
 
 function taskListButtonHandler(event) {
-  createTaskList();
+  instObjs();
   clearSidebar();
   event.preventDefault();
 }
@@ -58,7 +58,11 @@ function taskListButtonHandler(event) {
 //
 //
 
-function createTaskList() {
+
+
+
+
+function instObjs() {
   var taskContent = document.querySelectorAll('.appended');
   var tasks = [];
   for (var i = 0; i < taskContent.length; i++){
@@ -71,6 +75,10 @@ function createTaskList() {
   console.log(toDoCard);
   console.log(event.target);
   document.querySelector('.no-card-text').style.display = 'none';
+  domManipulation();
+};
+
+function domManipulation(){
   mainSection.innerHTML +=
     `<article data-id=${toDoCards[0].id} class="task-card">
     <div class="divider divider-top">
@@ -224,6 +232,16 @@ function makeUrgent(event) {
   }
 };
 
+function findCard () {
+  var cardId = event.target.closest('article').dataset.id;
+  for (var i = 0; i < toDoCards.length; i++){
+    if (parseInt(cardId) === toDoCards[i].id) {
+      var currentCard = toDoCards[i];
+      return currentCard;
+    };
+  };
+};
+
 
 // input: click, output: find closest card article☑️
 // take the id of that article, loop through the array of card to find
@@ -233,8 +251,13 @@ function makeUrgent(event) {
 function removeCard(event) {
   if (event.target.className === 'delete-button') {
     event.target.closest('article').remove();
+    var cardIndex = toDoCards.findIndex(findCard);
+    console.log(cardIndex);
+    toDoCards.shift();
   }
 };
+
+
 
 function taskHandler(event) {
   if (event.target.className === 'delete-img') {
