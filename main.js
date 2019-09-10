@@ -25,6 +25,7 @@ addTasks.addEventListener('click', appendTask);
 mainSection.addEventListener('click', makeUrgent);
 // individualTask.addEventListener('click', completeTask);
 mainSection.addEventListener('click', taskHandler);
+mainSection.addEventListener('click', checkBox);
 
 
 
@@ -58,16 +59,25 @@ function taskListButtonHandler(event) {
 //
 
 function createTaskList() {
-  var toDoCard = new ToDoList({title: taskTitle.value}, tasks);
+  var taskContent = document.querySelectorAll('.appended');
+  var tasks = [];
+  for (var i = 0; i < taskContent.length; i++){
+    var taskWords = taskContent[i].innerText;
+    var task = new IndTask(taskWords);
+    tasks.push(task);
+  }
+  var toDoCard = new ToDoList(taskTitle.value, tasks);
+  toDoCards.unshift(toDoCard);
   console.log(toDoCard);
+  console.log(event.target);
   document.querySelector('.no-card-text').style.display = 'none';
   mainSection.innerHTML +=
-    `<article class="task-card">
+    `<article data-id=${toDoCards[0].id} class="task-card">
     <div class="divider divider-top">
-      <h4>${taskTitle.value}</h4>
+      <h4>${toDoCards[0].title}</h4>
     </div>
     <div>
-      ${taskList.innerHTML}
+      ${cardTaskHtml(toDoCards[0].tasks)}
     </div>
     <div class="divider">
       <div class="task-card-bundle-button">
@@ -81,6 +91,16 @@ function createTaskList() {
     </div>
   </article>`;
   tasks = [];
+    console.log(toDoCards);
+};
+
+function cardTaskHtml(cardTasks){
+  var cardTaskInner = '';
+  for (i = 0; i < cardTasks.length; i++){
+    cardTaskInner +=
+    `<div data-id =${cardTasks[i].id} class="appended"><button class="task-delete check-me"><img  class="delete-img" src='./check-yo-self-icons/checkbox.svg'></button>${cardTasks[i].taskItem}</div>`
+  }
+  return cardTaskInner;
 };
 
 function disableAll() {
@@ -95,6 +115,14 @@ function clearSidebar() {
   taskList.innerHTML = '';
   disableAll();
 };
+
+// function checkTasks (event){
+//   toDoCards.forEach(function(card) {
+//     if(card.id === card.tasks.id) {
+//       card.tasks.closest('.appended').style.display = '.checked-task';
+//     }
+//   });
+// };
 
 // one func to handle instantiation of ToDo list class
 //
@@ -117,10 +145,11 @@ function clearSidebar() {
 
 
 function appendTask() {
-  var task = new IndTask(taskInput.value);
-  tasks.push(task);
-  console.log(tasks);
-  taskList.innerHTML += `<div data-id =${task.id} class="appended"><button class="task-delete"><img  class="delete-img" src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`;
+  // var task = new IndTask(taskInput.value);
+  // tasks.push(task);
+  // console.log(tasks);
+  // data-id =${task.id}
+  taskList.innerHTML += `<div class="appended"><button class="task-delete"><img class="delete-img" src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`;
   // tasks.push(
   // `<article class="task-card">
   //   <div class="divider divider-top">
@@ -172,6 +201,13 @@ function deleteTaskItem(event) {
 
 // this seems too ineffiecent - maybe i need to change the class name and then
 // target the innerHTML of that new class?
+function checkBox(event) {
+  console.log(event);
+  if (event.target.className === ('check-me')) {
+    event.target.closest('.appended').className = 'appended checked-task';
+  }
+};
+
 function makeUrgent(event) {
   console.log(event);
   if (event.target.className === ('urgent-button')) {
