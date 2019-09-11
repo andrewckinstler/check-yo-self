@@ -6,7 +6,7 @@ var mainSection = document.querySelector('.main');
 var taskTitle = document.querySelector('.form-title');
 var taskList = document.querySelector('.task-list');
 var clearButton = document.querySelector('.clear');
-var deleteTask = document.querySelector('.appended');
+// var deleteTask = document.querySelector('.appended');
 var urgentButton = document.querySelector('.urgentButton');
 var deleteButton = document.querySelector('.delete-button');
 var toDoCards = [];
@@ -32,7 +32,7 @@ function taskListButtonHandler(event) {
 };
 
 function instObjs() {
-  var taskContent = document.querySelectorAll('.appended');
+  var taskContent = document.querySelectorAll('.appended-sidebar');
   var tasks = [];
   for (var i = 0; i < taskContent.length; i++){
     var taskWords = taskContent[i].innerText;
@@ -90,7 +90,7 @@ function clearSidebar() {
 };
 
 function appendTask() {
-  taskList.innerHTML += `<div class="appended"><button class="task-delete"><img class="delete-img" src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`;
+  taskList.innerHTML += `<div class="appended-sidebar"><button class="task-delete"><img class="delete-img" src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`;
 };
 
 function disableClear() {
@@ -111,24 +111,27 @@ function deleteTaskItem(event) {
 
 function checkBox(event) {
   if (event.target.className === ('check-me delete-img')) {
+    console.log(event.target);
     event.target.src = './check-yo-self-icons/checkbox-active.svg';
     event.target.closest('.appended').className = 'appended checked-task';
-    findCard().updateTask(findTask());
-    checkHelper(findCard());
+    var foundCard = findCard();
+    console.log({ foundCard })
+    foundCard.updateTask(findTask());
+    checkHelper(event, foundCard);
   };
 };
 
-function checkOneCheckTwo(items) {
-  return items === true;
+function checkIsCompleted(task) {
+  return task.isCompleted === true;
 };
 
-function checkHelper(card) {
-  if (card.tasks.isCompleted.every(checkOneCheckTwo) === true){
-    console.log('almost');
+function checkHelper(event, card) {
+  console.log(card);
+  if (card.tasks.every(checkIsCompleted)){
+    event.target.parentNode.parentNode.parentNode.parentNode.children[2].children[1].children[0].disabled = false;
+    // event.target.parentNode.parentNode.parentNode.parentNode.children[2].children[1].children[0].className = false;
   };
 };
-
-// event.target.parentElement.parentElement.parentElement.parentElement.children[2].children[1].children[0]
 
 function makeUrgent(event) {
   if (event.target.className === ('urgent-button')) {
