@@ -5,9 +5,13 @@ class ToDoList {
     this.urgent = urgent || false;
     this.tasks = tasks;
   };
-  saveToStorage() {
-
+  
+  saveToStorage(array) {
+    var stringifyObj = JSON.stringify(array)
+    console.log(stringifyObj);
+    localStorage.setItem("objArray", stringifyObj);
   };
+
   deleteFromStorage() {
 
   };

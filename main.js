@@ -43,6 +43,7 @@ function instObjs() {
   toDoCards.unshift(toDoCard);
   document.querySelector('.no-card-text').style.display = 'none';
   domManipulation();
+  toDoCard.saveToStorage(toDoCards);
 };
 
 function domManipulation(){
