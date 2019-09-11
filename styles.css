@@ -190,6 +190,20 @@ h1 {
   width: 90%;
 }
 
+.urgent {
+  background-color: #FFE89D;
+  border-left: 2px solid #FFC30C;
+  border-right: 2px solid #FFC30C;
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid #FFC30C; */
+  grid-area: main;
+  /* align-items: center; */
+  margin: 5%;
+  text-align: center;
+  width: 90%;
+}
+
 .urgent-divider {
   border-bottom: 2px solid #FFC30C;
   border-top: 2px solid #FFC30C;

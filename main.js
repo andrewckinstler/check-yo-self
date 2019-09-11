@@ -115,7 +115,6 @@ function checkBox(event) {
     event.target.src = './check-yo-self-icons/checkbox-active.svg';
     event.target.closest('.appended').className = 'appended checked-task';
     var foundCard = findCard();
-    console.log({ foundCard })
     foundCard.updateTask(findTask());
     checkHelper(event, foundCard);
   };
@@ -135,14 +134,22 @@ function checkHelper(event, card) {
 
 function makeUrgent(event) {
   if (event.target.className === ('urgent-button')) {
-    event.target.closest('article').className = 'urgent-task-card';
+    // event.target.closest('article').className = 'urgent-task-card';
+    event.target.closest('article').classList.toggle('urgent');
     var cardId = event.target.closest('article').dataset.id;
     for (var i = 0; i < toDoCards.length; i++) {
       if (parseFloat(cardId) === toDoCards[i].id) {
         toDoCards[i].updateToDo();
       };
     };
-    event.target.closest('.divider').className = 'urgent-divider';
+    event.target.closest('.divider').classList.toggle('urgent-divider');
+    var foundCard = findCard();
+    console.log(foundCard);
+    if (foundCard.urgent) {
+      event.target.src = './check-yo-self-icons/urgent-active.svg';
+    } else {
+      event.target.src = './check-yo-self-icons/urgent.svg';
+    }
   };
 };
 
@@ -170,7 +177,11 @@ function findTask() {
 function removeCard(event) {
   if (event.target.className === 'delete-button') {
     event.target.closest('article').remove();
-    var cardIndex = toDoCards.findIndex(findCard);
-    toDoCards.shift();
+    // var cardIndex = toDoCards.findIndex(findCard);
+    var cardIndex = toDoCards.indexOf();
+    console.log(cardIndex);
+    toDoCards.splice(cardIndex, 1);
+    console.log(toDoCards);
+    // toDoCards.shift();
   };
 };
