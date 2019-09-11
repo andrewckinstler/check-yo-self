@@ -27,13 +27,17 @@ Screenshots of comp
 * Accessing and manipulating values within objects
 * Creating dynamic DOM elements with relative ease
 * Creating styling changes based on user interaction
+* Found a good balance of knowing when to stuggle and when to ask for help
  
- ## Challenges
+## Challenges
 * Accessing and manipulating values within objects
-* 
-*
+* Reconciling our hopes for the project with our cognitive needs
 
 ## Reflections
+* This project represents a very large amount of progress
+* Even though we didn't get as far as we might have hoped, no time was wasted
+* We are > we were
+* Stuck strongly to our DTR
 
 ## Comp Screenshots
 
