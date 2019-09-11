@@ -128,7 +128,8 @@ h1 {
   width: 3em;
 }
 
-.appended {
+.appended,
+.appended-sidebar {
   color: #FFF;
   display: flex;
   font-size: 22px;
