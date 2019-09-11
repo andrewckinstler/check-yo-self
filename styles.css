@@ -5,6 +5,14 @@
   padding: 0;
 }
 
+html {
+  height: 100vh;
+}
+
+body {
+  height: 100vh;
+}
+
 .container {
   display: grid;
   grid-template-areas:
@@ -15,7 +23,6 @@
   "sidebottom"
   "main"
   "main";
-  /* grid-template-columns: 33%; */
 }
 
 header {
@@ -60,7 +67,6 @@ h1 {
 
 .task-form {
   display: flex;
-  margin: auto;
   padding: 0 0 20px 15px;
   width: 100%;
 }
@@ -71,6 +77,7 @@ h1 {
   font-size: 28px;
   padding: 10px;
   width: 81%;
+  margin-left: 2px;
 }
 
 .add-task {
@@ -100,9 +107,8 @@ h1 {
   display: flex;
   flex-flow: column wrap;
   grid-area: sidebottom;
-  height: 400px;
   justify-content: flex-start;
-  padding-top: 30px;
+  padding: 30px 0 30px 0;
 }
 
 .form-title {
@@ -159,8 +165,15 @@ h1 {
 .no-card-text {
   color: lightgrey;
   font-size: 35px;
-  margin: 35% 0% 0% 15%;
+  margin-top: 15%;
   text-align: center;
+}
+
+.main {
+  grid-area: main;
+  flex-direction: row;
+  overflow: scroll;
+  height: 666px;
 }
 
 .task-card {
@@ -169,11 +182,9 @@ h1 {
   border-right: 2px solid lightgrey;
   display: flex;
   flex-direction: column;
-  grid-area: main;
-  /* align-items: center; */
   margin: 5%;
   text-align: center;
-  width: 90%;
+  width: 33%;
 }
 
 .urgent-task-card {
@@ -182,12 +193,10 @@ h1 {
   border-right: 2px solid #FFC30C;
   display: flex;
   flex-direction: column;
-  /* border: 2px solid #FFC30C; */
   grid-area: main;
-  /* align-items: center; */
   margin: 5%;
   text-align: center;
-  width: 90%;
+  width: 33%;
 }
 
 .urgent {
@@ -196,12 +205,10 @@ h1 {
   border-right: 2px solid #FFC30C;
   display: flex;
   flex-direction: column;
-  /* border: 2px solid #FFC30C; */
   grid-area: main;
-  /* align-items: center; */
   margin: 5%;
   text-align: center;
-  width: 90%;
+  width: 33%;
 }
 
 .urgent-divider {
@@ -234,11 +241,6 @@ h1 {
   width: 100%;
 }
 
-/* .divider-top {
-  justify-content: flex-start;
-  padding: 10px;
-} */
-
 .urgent-button {
   display: block;
   height: 20px;
@@ -255,10 +257,6 @@ h1 {
   font-style: italic;
 }
 
-/* ul {
-  list-style-image: url('check-yo-self-icons/checkbox.svg');
-} */
-
 .disabled-button {
   background-color: lightgrey;
 }
@@ -273,6 +271,7 @@ h1 {
         "sidebottom main main"
         "sidebottom main main";
       grid-template-columns: 33%;
+      grid-template-rows: repeat(auto-fill, minmax(100px, 2fr));
     }
   header {
     align-items: center;
@@ -290,7 +289,7 @@ h1 {
     display: flex;
     flex-flow: column wrap;
     grid-area: sidebottom;
-    height: 210px;
+    height: 50vh;
     justify-content: flex-start;
     padding-top: 30px;
   }
@@ -300,12 +299,3 @@ h1 {
     width: 350px;
   }
 }
-
-/* @media (max-width: 700px) {
-  .container {
-    grid-template-areas: "head"
-    "sidetop"
-    "sidebottom"
-    "main";
-  }
-} */
