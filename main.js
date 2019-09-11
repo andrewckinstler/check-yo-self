@@ -8,6 +8,7 @@ var taskList = document.querySelector('.task-list');
 var clearButton = document.querySelector('.clear');
 var deleteTask = document.querySelector('.appended');
 var urgentButton = document.querySelector('.urgentButton');
+var deleteButton = document.querySelector('.delete-button');
 var toDoCards = [];
 
 
@@ -22,7 +23,6 @@ taskList.addEventListener('click', deleteTaskItem);
 mainSection.addEventListener('click', removeCard);
 addTasks.addEventListener('click', appendTask);
 mainSection.addEventListener('click', makeUrgent);
-mainSection.addEventListener('click', taskHandler);
 mainSection.addEventListener('click', checkBox);
 
 function taskListButtonHandler(event) {
@@ -41,7 +41,6 @@ function instObjs() {
   };
   var toDoCard = new ToDoList(taskTitle.value, tasks);
   toDoCards.unshift(toDoCard);
-  console.log(toDoCard);
   document.querySelector('.no-card-text').style.display = 'none';
   domManipulation();
 };
@@ -61,12 +60,11 @@ function domManipulation(){
         <p>URGENT</p>
       </div>
       <div class="task-card-bundle-button">
-        <input type="image" class="delete-button" src="check-yo-self-icons/delete.svg"/>
+        <input type="image" disabled class="delete-button" src="check-yo-self-icons/delete.svg"/>
         <p>DELETE</p>
       </div>
     </div>
   </article>`;
-  tasks = [];
 };
 
 function cardTaskHtml(cardTasks){
@@ -112,11 +110,21 @@ function deleteTaskItem(event) {
 };
 
 function checkBox(event) {
-  console.log(event);
   if (event.target.className === ('check-me delete-img')) {
     event.target.src = './check-yo-self-icons/checkbox-active.svg';
     event.target.closest('.appended').className = 'appended checked-task';
     findCard().updateTask(findTask());
+    checkHelper(findCard());
+  };
+};
+
+function checkOneCheckTwo(items) {
+  return items === true;
+};
+
+function checkHelper(card) {
+  if (card.tasks.isCompleted.every(checkOneCheckTwo) === true){
+    console.log('almost');
   };
 };
 
@@ -127,7 +135,6 @@ function makeUrgent(event) {
     event.target.closest('article').className = 'urgent-task-card';
     var cardId = event.target.closest('article').dataset.id;
     for (var i = 0; i < toDoCards.length; i++) {
-      console.log('firing');
       if (parseFloat(cardId) === toDoCards[i].id) {
         toDoCards[i].updateToDo();
       };
@@ -162,18 +169,5 @@ function removeCard(event) {
     event.target.closest('article').remove();
     var cardIndex = toDoCards.findIndex(findCard);
     toDoCards.shift();
-  };
-};
-
-function taskHandler(event) {
-  if (event.target.className === 'delete-img') {
-    var getDiv = event.target.closest('div');
-    var taskId = getDiv.dataset.id;
-    console.log(taskId);
-    console.log(tasks);
-    console.log(tasks.findIndex(function(task) {
-      console.log(task);
-      return task.id === taskId;
-    }));
   };
 };
