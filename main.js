@@ -113,10 +113,17 @@ function checkBox(event) {
   if (event.target.className === ('check-me delete-img')) {
     console.log(event.target);
     event.target.src = './check-yo-self-icons/checkbox-active.svg';
-    event.target.closest('.appended').className = 'appended checked-task';
+    // event.target.closest('.appended').className = 'appended checked-task';
+    event.target.closest('.appended').classList.toggle('checked-task');
     var foundCard = findCard();
+    var foundTask = findTask();
     foundCard.updateTask(findTask());
     checkHelper(event, foundCard);
+    if (foundTask.isCompleted) {
+      event.target.src = './check-yo-self-icons/checkbox-active.svg';
+    } else {
+      event.target.src = './check-yo-self-icons/checkbox.svg';
+    }
   };
 };
 
