@@ -14,7 +14,7 @@ class ToDoList {
   updateToDo() {
     this.urgent = !this.urgent;
   };
-  updateTask() {
-
+  updateTask(task) {
+    task.isCompleted = !task.isCompleted;
+    };
   };
-};

@@ -23,44 +23,14 @@ taskList.addEventListener('click', deleteTaskItem);
 mainSection.addEventListener('click', removeCard);
 addTasks.addEventListener('click', appendTask);
 mainSection.addEventListener('click', makeUrgent);
-// individualTask.addEventListener('click', completeTask);
 mainSection.addEventListener('click', taskHandler);
 mainSection.addEventListener('click', checkBox);
-
-
 
 function taskListButtonHandler(event) {
   instObjs();
   clearSidebar();
   event.preventDefault();
-}
-
-// task icon switch function
-// span around each list content
-// to target the text specifically
-// add circle icon as default
-//event listener with toggle on divs we are appending
-// add checked icon into javascript
-// inner html switch based on click
-//
-//
-
-// object card change
-// update ToDolist.isCompleted in main.js
-// when ToDoList.isCompleted = true {
-// update the icon and styling on that particular IndTask.
-// }
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
+};
 
 function instObjs() {
   var taskContent = document.querySelectorAll('.appended');
@@ -69,11 +39,10 @@ function instObjs() {
     var taskWords = taskContent[i].innerText;
     var task = new IndTask(taskWords);
     tasks.push(task);
-  }
+  };
   var toDoCard = new ToDoList(taskTitle.value, tasks);
   toDoCards.unshift(toDoCard);
   console.log(toDoCard);
-  console.log(event.target);
   document.querySelector('.no-card-text').style.display = 'none';
   domManipulation();
 };
@@ -106,7 +75,7 @@ function cardTaskHtml(cardTasks){
   for (i = 0; i < cardTasks.length; i++){
     cardTaskInner +=
     `<div data-id =${cardTasks[i].id} class="appended"><button class="task-delete check-me"><img  class="check-me delete-img" src='./check-yo-self-icons/checkbox.svg'></button>${cardTasks[i].taskItem}</div>`
-  }
+  };
   return cardTaskInner;
 };
 
@@ -123,59 +92,8 @@ function clearSidebar() {
   disableAll();
 };
 
-// function checkTasks (event){
-//   toDoCards.forEach(function(card) {
-//     if(card.id === card.tasks.id) {
-//       card.tasks.closest('.appended').style.display = '.checked-task';
-//     }
-//   });
-// };
-
-// one func to handle instantiation of ToDo list class
-//
-// loop through node list and add instantite the task class
-// next line is to push into locally scoped arraY
-// instantiate new todo list obj, passing previous array through the constructor
-// from there local storage or whatevs
-//
-// dataset.id
-
-
-// new find ID function
-//  once we have the id we will use it as an argument
-//
-//
-//
-//
-//
-//
-
-
 function appendTask() {
-  // var task = new IndTask(taskInput.value);
-  // tasks.push(task);
-  // console.log(tasks);
-  // data-id =${task.id}
   taskList.innerHTML += `<div class="appended"><button class="task-delete"><img class="delete-img" src='./check-yo-self-icons/delete.svg'></button>${taskInput.value}</div>`;
-  // tasks.push(
-  // `<article class="task-card">
-  //   <div class="divider divider-top">
-  //     <h4>${taskTitle.value}</h4>
-  //   </div>
-  //   <div>
-  //     ${taskList.innerHTML}
-  //   </div>
-  //   <div class="divider">
-  //     <div class="task-card-bundle-button">
-  //       <input type="image" class="urgent-button" src="check-yo-self-icons/urgent.svg"/>
-  //       <p>URGENT</p>
-  //     </div>
-  //     <div class="task-card-bundle-button">
-  //       <input type="image" class="delete-button" src="check-yo-self-icons/delete.svg"/>
-  //       <p>DELETE</p>
-  //     </div>
-  //   </div>
-  // </article>`)
 };
 
 function disableClear() {
@@ -185,79 +103,65 @@ function disableClear() {
     clearButton.disabled = false;
     addTasks.disabled = false;
     makeTaskBtn.disabled = false;
-  }
+  };
 };
 
 function deleteTaskItem(event) {
   if (event.target.className === 'delete-img') {
     event.target.closest('div').remove();
-  }
+  };
 };
 
-
-// Ertmer's pseudo for urgent button change class function
-// input: click
-// output: add class of 'urgent' and style the exisiting card appropriately
-//
-// gen. idea: upon click, the card adopts a new class with styling to match urgent card comp
-// and button should stay in it's active state(red icon).
-//
-// event listener on the parent element of the button? main?, since that is the
-// closest container that *isnt* dynamically added? or the dynamic div that contains
-// the button?
-
-// this seems too ineffiecent - maybe i need to change the class name and then
-// target the innerHTML of that new class?
 function checkBox(event) {
   console.log(event);
   if (event.target.className === ('check-me delete-img')) {
     event.target.closest('.appended').className = 'appended checked-task';
-  }
+    findCard().updateTask(findTask());
+  };
 };
 
 function makeUrgent(event) {
-  console.log(event);
   if (event.target.className === ('urgent-button')) {
     event.target.closest('article').className = 'urgent-task-card';
     var cardId = event.target.closest('article').dataset.id;
     for (var i = 0; i < toDoCards.length; i++) {
-      // check each index against the cardID
       console.log('firing');
-      if (parseInt(cardId) === toDoCards[i].id) {
+      if (parseFloat(cardId) === toDoCards[i].id) {
         toDoCards[i].updateToDo();
-      }
-    }
+      };
+    };
     event.target.closest('.divider').className = 'urgent-divider';
-    // event.target.closest('.divider-top').className = 'urgent-divider-top';
-  }
+  };
 };
 
-function findCard () {
-  var cardId = event.target.closest('article').dataset.id;
+function findCard() {
+  var cardId = parseFloat(event.target.closest('article').dataset.id);
   for (var i = 0; i < toDoCards.length; i++){
-    if (parseInt(cardId) === toDoCards[i].id) {
+    if (cardId === toDoCards[i].id) {
       var currentCard = toDoCards[i];
       return currentCard;
     };
   };
 };
 
-
-// input: click, output: find closest card article☑️
-// take the id of that article, loop through the array of card to find
-// matching ID. then run updateToDo() on that card as a whole.
-
+function findTask() {
+  var taskId = parseFloat(event.target.closest('.appended').dataset.id);
+  var cardId = findCard();
+  for (var i = 0; i < cardId.tasks.length; i++) {
+    if (taskId === cardId.tasks[i].id) {
+      var currentTask = cardId.tasks[i];
+      return currentTask;
+    };
+  };
+};
 
 function removeCard(event) {
   if (event.target.className === 'delete-button') {
     event.target.closest('article').remove();
     var cardIndex = toDoCards.findIndex(findCard);
-    console.log(cardIndex);
     toDoCards.shift();
-  }
+  };
 };
-
-
 
 function taskHandler(event) {
   if (event.target.className === 'delete-img') {
@@ -265,22 +169,9 @@ function taskHandler(event) {
     var taskId = getDiv.dataset.id;
     console.log(taskId);
     console.log(tasks);
-    // var closestList = tasks.findIndex(taskId);
     console.log(tasks.findIndex(function(task) {
       console.log(task);
       return task.id === taskId;
     }));
-  }
+  };
 };
-
-// function getId(event) {
-    // var getDiv = event.target.closest('div');
-    // var taskId = getDiv.dataset.id;
-    // var closestList = tasks.find(taskId);
-    // console.log(closestList);
-    // return taskId;
-// };
-
-// function completeTask() {
-//   console.log(closestList);
-// };
