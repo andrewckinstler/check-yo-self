@@ -8,7 +8,6 @@ var taskList = document.querySelector('.task-list');
 var clearButton = document.querySelector('.clear');
 var deleteTask = document.querySelector('.appended');
 var urgentButton = document.querySelector('.urgentButton');
-var tasks = [];
 var toDoCards = [];
 
 
@@ -115,10 +114,13 @@ function deleteTaskItem(event) {
 function checkBox(event) {
   console.log(event);
   if (event.target.className === ('check-me delete-img')) {
+    event.target.src = './check-yo-self-icons/checkbox-active.svg';
     event.target.closest('.appended').className = 'appended checked-task';
     findCard().updateTask(findTask());
   };
 };
+
+// event.target.parentElement.parentElement.parentElement.parentElement.children[2].children[1].children[0]
 
 function makeUrgent(event) {
   if (event.target.className === ('urgent-button')) {
