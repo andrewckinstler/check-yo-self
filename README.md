@@ -46,9 +46,7 @@
 
 <img width="1440" alt="Screen Shot 2019-09-11 at 3 24 04 PM" src="https://user-images.githubusercontent.com/49926352/64737023-26fa2500-d4a9-11e9-9fc4-0693ed63a005.png">
 
-
-<img width="1440" alt="Screen Shot 2019-09-11 at 3 27 11 PM" src="https://user-images.githubusercontent.com/49926352/64736924-fca86780-d4a8-11e9-95f6-26e2042f5998.png">
-
+<img width="1440" alt="Screen Shot 2019-09-11 at 9 17 58 PM" src="https://user-images.githubusercontent.com/49926352/64751551-b91a2180-d4d9-11e9-9fe3-186c673b07c8.png">
 
 ![screencapture-127-0-0-1-5501-index-html-2019-09-11-15_27_32](https://user-images.githubusercontent.com/49926352/64737126-66c10c80-d4a9-11e9-86b6-3d2b02d6c18d.png)
 
