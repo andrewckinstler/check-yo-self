@@ -201,7 +201,7 @@ h1 {
   background-color: #FFE89D;
   border-left: 2px solid #FFC30C;
   border-right: 2px solid #FFC30C;
-  display: flex;
+  display: inline-block;
   flex-direction: column;
   grid-area: main;
   margin: 5%;
@@ -213,10 +213,8 @@ h1 {
   background-color: #FFE89D;
   border-left: 2px solid #FFC30C;
   border-right: 2px solid #FFC30C;
-  display: flex;
-  flex-direction: column;
+  display: inline-block;
   grid-area: main;
-  margin: 5%;
   text-align: center;
   width: 100%;
 }
