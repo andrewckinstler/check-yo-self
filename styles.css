@@ -172,7 +172,7 @@ h1 {
 .no-card-text {
   color: lightgrey;
   font-size: 35px;
-  margin-top: 15%;
+  /* margin-top: 15%; */
   text-align: center;
 }
 
@@ -308,4 +308,6 @@ h1 {
     flex: 1 0 auto;
     width: 350px;
   }
+
+  .main
 }
