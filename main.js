@@ -183,10 +183,11 @@ function findTask() {
 };
 
 function removeCard(event) {
+  var foundCard = findCard();
   if (event.target.className === 'delete-button') {
     event.target.closest('article').remove();
     // var cardIndex = toDoCards.findIndex(findCard);
-    var cardIndex = toDoCards.indexOf();
+    var cardIndex = toDoCards.indexOf(foundCard);
     console.log(cardIndex);
     toDoCards.splice(cardIndex, 1);
     console.log(toDoCards);
