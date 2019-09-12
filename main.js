@@ -24,15 +24,26 @@ addTasks.addEventListener('click', appendTask);
 mainSection.addEventListener('click', makeUrgent);
 mainSection.addEventListener('click', checkBox);
 
-reloadCards();
+window.addEventListener('load', reloadCards);
 
 function reloadCards() {
+  console.log(event);
   var reloadedCards = JSON.parse(localStorage.getItem("objArray"));
   reloadedCards.forEach(function(card) {
     var toDoCard = new ToDoList(card.title, card.tasks, card.urgent, card.id);
     toDoCards.unshift(toDoCard);
     document.querySelector('.no-card-text').style.display = 'none';
     domManipulation();
+    redoUrgent(toDoCard);
+  })
+};
+
+function redoUrgent(card) {
+  toDoCards.forEach(function(card) {
+    if (card.urgent === true) {
+      event.target.children[0].children[1].children[0].children[3].children[1].classList.add('urgent');
+      event.target.children[0].children[1].children[0].children[3].children[1].children[2].children[0].children[0].src = './check-yo-self-icons/urgent-active.svg';
+    }
   })
 };
 
