@@ -5,11 +5,6 @@
   padding: 0;
 }
 
-input:focus
-button:focus {
-  outline: none;
-}
-
 html {
   height: 100vh;
 }
@@ -171,16 +166,19 @@ h1 {
 
 .no-card-text {
   color: lightgrey;
+<<<<<<< HEAD
   font-size: 35px;
   /* margin-top: 15%; */
+=======
+  font-size: 30px;
+  margin-top: 15%;
+>>>>>>> 8282af7f77f6a326f33f92a6f4cf291dba9bb4f2
   text-align: center;
 }
 
 .main {
   grid-area: main;
-  overflow: scroll;
-  height: 666px;
-  column-count: 2;
+  column-count: 1;
   column-gap: 1em;
   padding: 1em;
   width: 100%;
@@ -201,10 +199,10 @@ h1 {
   background-color: #FFE89D;
   border-left: 2px solid #FFC30C;
   border-right: 2px solid #FFC30C;
-  display: flex;
+  display: inline-block;
   flex-direction: column;
   grid-area: main;
-  margin: 5%;
+  /* margin: 5%; */
   text-align: center;
   width: 100%;
 }
@@ -213,10 +211,8 @@ h1 {
   background-color: #FFE89D;
   border-left: 2px solid #FFC30C;
   border-right: 2px solid #FFC30C;
-  display: flex;
-  flex-direction: column;
+  display: inline-block;
   grid-area: main;
-  margin: 5%;
   text-align: center;
   width: 100%;
 }
@@ -309,5 +305,17 @@ h1 {
     width: 350px;
   }
 
+<<<<<<< HEAD
   .main
+=======
+  .main {
+    grid-area: main;
+    overflow: scroll;
+    height: 100%;
+    column-count: 2;
+    column-gap: 1em;
+    padding: 1em;
+    width: 100%;
+  }
+>>>>>>> 8282af7f77f6a326f33f92a6f4cf291dba9bb4f2
 }
