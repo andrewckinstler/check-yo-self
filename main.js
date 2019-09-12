@@ -10,7 +10,6 @@ var urgentButton = document.querySelector('.urgentButton');
 var deleteButton = document.querySelector('.delete-button');
 var toDoCards = [];
 
-
 document.querySelectorAll('.form-title').forEach(function(form) {
   form.addEventListener('keyup', disableClear);
 });
@@ -19,15 +18,22 @@ clearButton.addEventListener('click', clearSidebar);
 taskTitle.addEventListener('keyup', disableClear);
 taskInput.addEventListener('keyup', disableClear);
 taskList.addEventListener('click', deleteTaskItem);
-mainSection.addEventListener('click', removeCard);
 addTasks.addEventListener('click', appendTask);
-mainSection.addEventListener('click', makeUrgent);
-mainSection.addEventListener('click', checkBox);
+mainSection.addEventListener('click', mainListener);
 
 window.addEventListener('load', reloadCards);
 
+function mainListener(event) {
+  if (event.target.className === 'delete-button') {
+    removeCard(event);
+  } else if (event.target.className === ('urgent-button')) {
+    makeUrgent(event);
+  } else if (event.target.className === ('check-me delete-img')) {
+    checkBox(event);
+  }
+};
+
 function reloadCards() {
-  console.log(event);
   var reloadedCards = JSON.parse(localStorage.getItem("objArray"));
   reloadedCards.forEach(function(card) {
     var toDoCard = new ToDoList(card.title, card.tasks, card.urgent, card.id);
@@ -39,18 +45,18 @@ function reloadCards() {
 };
 
 function redoUrgent(card) {
+  console.log(event);
   toDoCards.forEach(function(card) {
     if (card.urgent === true) {
-      event.target.children[0].children[1].children[0].children[3].children[1].classList.add('urgent');
-      event.target.children[0].children[1].children[0].children[3].children[1].children[2].children[0].children[0].src = './check-yo-self-icons/urgent-active.svg';
+      event.target.children[0].children[1].children[0].children[3].children[0].classList.add('urgent');
+      event.target.children[0].children[1].children[0].children[3].children[0].children[2].children[0].children[0].src = './check-yo-self-icons/urgent-active.svg';
     }
   })
 };
 
-function taskListButtonHandler(event) {
+function taskListButtonHandler() {
   instObjs();
   clearSidebar();
-  event.preventDefault();
 };
 
 function instObjs() {
@@ -133,19 +139,16 @@ function deleteTaskItem(event) {
 };
 
 function checkBox(event) {
-  if (event.target.className === ('check-me delete-img')) {
+  var foundCard = findCard();
+  var foundTask = findTask();
+  foundCard.updateTask(foundTask);
+  if (foundTask.isCompleted) {
     event.target.src = './check-yo-self-icons/checkbox-active.svg';
-    event.target.closest('.appended').classList.toggle('checked-task');
-    var foundCard = findCard();
-    var foundTask = findTask();
-    foundCard.updateTask(findTask());
-    checkHelper(event, foundCard);
-    if (foundTask.isCompleted) {
-      event.target.src = './check-yo-self-icons/checkbox-active.svg';
-    } else {
-      event.target.src = './check-yo-self-icons/checkbox.svg';
-    }
-  };
+  } else {
+    event.target.src = './check-yo-self-icons/checkbox.svg';
+  }
+  event.target.closest('.appended').classList.toggle('checked-task');
+  checkHelper(event, foundCard);
 };
 
 function checkIsCompleted(task) {
@@ -159,23 +162,27 @@ function checkHelper(event, card) {
 };
 
 function makeUrgent(event) {
-  if (event.target.className === ('urgent-button')) {
-    event.target.closest('article').classList.toggle('urgent');
-    var cardId = event.target.closest('article').dataset.id;
-    for (var i = 0; i < toDoCards.length; i++) {
-      if (parseFloat(cardId) === toDoCards[i].id) {
-        toDoCards[i].updateToDo();
-        toDoCards[i].saveToStorage(toDoCards);
-      };
+  var cardId = event.target.closest('article').dataset.id;
+  var foundCard = findCard();
+  event.target.closest('.divider').classList.toggle('urgent-divider');
+  event.target.closest('article').classList.toggle('urgent');
+  for (var i = 0; i < toDoCards.length; i++) {
+    if (parseFloat(cardId) === toDoCards[i].id) {
+      toDoCards[i].updateToDo();
+      toDoCards[i].saveToStorage(toDoCards);
     };
-    event.target.closest('.divider').classList.toggle('urgent-divider');
-    var foundCard = findCard();
-    if (foundCard.urgent) {
-      event.target.src = './check-yo-self-icons/urgent-active.svg';
-    } else {
-      event.target.src = './check-yo-self-icons/urgent.svg';
-    }
   };
+  console.log({ foundCard })
+  // foundCard.updateToDo();
+  // console.log(foundCard.urgent)
+  // var cardIndex = toDoCards.indexOf(foundCard);
+  // toDoCards.splice(cardIndex, 1, foundCard);
+  // foundCard.saveToStorage(toDoCards);
+  if (foundCard.urgent) {
+    event.target.src = './check-yo-self-icons/urgent-active.svg';
+  } else {
+    event.target.src = './check-yo-self-icons/urgent.svg';
+  }
 };
 
 function findCard() {
