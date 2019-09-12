@@ -1,7 +1,3 @@
-Screenshots of comp
-
-
-
 # Check Yo Self - Group Project
 
 ## Group Members:
