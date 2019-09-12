@@ -166,13 +166,9 @@ h1 {
 
 .no-card-text {
   color: lightgrey;
-<<<<<<< HEAD
   font-size: 35px;
-  /* margin-top: 15%; */
-=======
   font-size: 30px;
   margin-top: 15%;
->>>>>>> 8282af7f77f6a326f33f92a6f4cf291dba9bb4f2
   text-align: center;
 }
 
@@ -202,7 +198,6 @@ h1 {
   display: inline-block;
   flex-direction: column;
   grid-area: main;
-  /* margin: 5%; */
   text-align: center;
   width: 100%;
 }
@@ -305,9 +300,6 @@ h1 {
     width: 350px;
   }
 
-<<<<<<< HEAD
-  .main
-=======
   .main {
     grid-area: main;
     overflow: scroll;
@@ -317,5 +309,4 @@ h1 {
     padding: 1em;
     width: 100%;
   }
->>>>>>> 8282af7f77f6a326f33f92a6f4cf291dba9bb4f2
 }
