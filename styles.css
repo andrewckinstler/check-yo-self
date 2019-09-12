@@ -5,6 +5,11 @@
   padding: 0;
 }
 
+input:focus
+button:focus {
+  outline: none;
+}
+
 html {
   height: 100vh;
 }
@@ -173,20 +178,23 @@ h1 {
 
 .main {
   grid-area: main;
-  flex-direction: row;
   overflow: scroll;
   height: 666px;
+  column-count: 2;
+  column-gap: 1em;
+  padding: 1em;
+  width: 100%;
 }
 
 .task-card {
   background-color: #FAFDFF;
   border-left: 2px solid lightgrey;
   border-right: 2px solid lightgrey;
-  display: flex;
+  display: inline-block;
   flex-direction: column;
-  margin: 5%;
+  margin-top: 1em;
   text-align: center;
-  width: 33%;
+  width: 100%;
 }
 
 .urgent-task-card {
@@ -198,7 +206,7 @@ h1 {
   grid-area: main;
   margin: 5%;
   text-align: center;
-  width: 33%;
+  width: 100%;
 }
 
 .urgent {
@@ -210,7 +218,7 @@ h1 {
   grid-area: main;
   margin: 5%;
   text-align: center;
-  width: 33%;
+  width: 100%;
 }
 
 .urgent-divider {
