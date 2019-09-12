@@ -58,7 +58,7 @@ function instObjs() {
 };
 
 function domManipulation(){
-  mainSection.innerHTML +=
+  mainSection.innerHTML =
     `<article data-id=${toDoCards[0].id} class="task-card">
     <div class="divider divider-top">
       <h4>${toDoCards[0].title}</h4>
@@ -76,7 +76,7 @@ function domManipulation(){
         <p>DELETE</p>
       </div>
     </div>
-  </article>`;
+  </article>`+ mainSection.innerHTML;
 };
 
 function cardTaskHtml(cardTasks){
