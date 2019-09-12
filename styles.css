@@ -5,11 +5,6 @@
   padding: 0;
 }
 
-input:focus
-button:focus {
-  outline: none;
-}
-
 html {
   height: 100vh;
 }
@@ -178,9 +173,7 @@ h1 {
 
 .main {
   grid-area: main;
-  overflow: scroll;
-  height: 666px;
-  column-count: 2;
+  column-count: 1;
   column-gap: 1em;
   padding: 1em;
   width: 100%;
@@ -201,10 +194,10 @@ h1 {
   background-color: #FFE89D;
   border-left: 2px solid #FFC30C;
   border-right: 2px solid #FFC30C;
-  display: flex;
+  display: inline-block;
   flex-direction: column;
   grid-area: main;
-  margin: 5%;
+  /* margin: 5%; */
   text-align: center;
   width: 100%;
 }
@@ -216,7 +209,6 @@ h1 {
   display: flex;
   flex-direction: column;
   grid-area: main;
-  margin: 5%;
   text-align: center;
   width: 100%;
 }
@@ -307,5 +299,15 @@ h1 {
   .search-form {
     flex: 1 0 auto;
     width: 350px;
+  }
+
+  .main {
+    grid-area: main;
+    overflow: scroll;
+    height: 100%;
+    column-count: 2;
+    column-gap: 1em;
+    padding: 1em;
+    width: 100%;
   }
 }
