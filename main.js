@@ -154,7 +154,7 @@ function makeUrgent(event) {
     for (var i = 0; i < toDoCards.length; i++) {
       if (parseFloat(cardId) === toDoCards[i].id) {
         toDoCards[i].updateToDo();
-        toDoCards[i].saveToStorage(toDoCards[i]);
+        toDoCards[i].saveToStorage(toDoCards);
       };
     };
     event.target.closest('.divider').classList.toggle('urgent-divider');
